@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'untitledVhRREz.ui'
+## Form generated from reading UI file 'untitledffGrOK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.0
 ##
@@ -26,6 +26,7 @@ class Ui_Form(object):
         self.data_and_time = QLabel(Form)
         self.data_and_time.setObjectName(u"data_and_time")
         font = QFont()
+        font.setFamilies([u"Calibri"])
         font.setPointSize(11)
         self.data_and_time.setFont(font)
         self.data_and_time.setStyleSheet(u"")
@@ -75,7 +76,8 @@ class Ui_Form(object):
         self.name_label = QLabel(Form)
         self.name_label.setObjectName(u"name_label")
         font1 = QFont()
-        font1.setPointSize(14)
+        font1.setFamilies([u"Calibri"])
+        font1.setPointSize(16)
         self.name_label.setFont(font1)
 
         self.gridLayout.addWidget(self.name_label, 0, 0, 1, 1)

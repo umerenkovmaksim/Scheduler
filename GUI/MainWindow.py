@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow - untitledaLfMGc.ui'
+## Form generated from reading UI file 'MainWindow - untitledwBpeSK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.0
 ##
@@ -41,8 +41,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame = QFrame(self.main_header)
         self.frame.setObjectName(u"frame")
-        self.frame.setMinimumSize(QSize(100, 0))
-        self.frame.setMaximumSize(QSize(50, 16777215))
+        self.frame.setMinimumSize(QSize(150, 0))
+        self.frame.setMaximumSize(QSize(75, 16777215))
         self.frame.setStyleSheet(u"")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
@@ -89,6 +89,30 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.home_btn)
 
+        self.create_task_btn = QPushButton(self.frame)
+        self.create_task_btn.setObjectName(u"create_task_btn")
+        self.create_task_btn.setMinimumSize(QSize(0, 30))
+        self.create_task_btn.setMaximumSize(QSize(300, 16777215))
+        font = QFont()
+        font.setFamilies([u"Calibri"])
+        font.setPointSize(14)
+        self.create_task_btn.setFont(font)
+        self.create_task_btn.setStyleSheet(u"QPushButton {\n"
+"	background-repeat: none;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(215, 255, 255);\n"
+"}")
+        icon2 = QIcon()
+        icon2.addFile(u":/icons/icons/plus-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.create_task_btn.setIcon(icon2)
+        self.create_task_btn.setIconSize(QSize(24, 24))
+        self.create_task_btn.setFlat(False)
+
+        self.horizontalLayout_2.addWidget(self.create_task_btn)
+
 
         self.horizontalLayout.addWidget(self.frame)
 
@@ -128,9 +152,9 @@ class Ui_MainWindow(object):
 "QPushButton::hover{\n"
 "	background-color: rgb(215, 255, 255);\n"
 "}")
-        icon2 = QIcon()
-        icon2.addFile(u":/icons/icons/minus.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.hide_btn.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/icons/minus.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.hide_btn.setIcon(icon3)
 
         self.horizontalLayout_4.addWidget(self.hide_btn)
 
@@ -146,9 +170,9 @@ class Ui_MainWindow(object):
 "QPushButton::hover{\n"
 "	background-color: rgb(215, 255, 255);\n"
 "}")
-        icon3 = QIcon()
-        icon3.addFile(u":/icons/icons/maximize-2.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.expand_btn.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/icons/maximize-2.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.expand_btn.setIcon(icon4)
 
         self.horizontalLayout_4.addWidget(self.expand_btn)
 
@@ -164,9 +188,9 @@ class Ui_MainWindow(object):
 "QPushButton::hover{\n"
 "	background-color: red;\n"
 "}")
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/icons/x.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.close_btn.setIcon(icon4)
+        icon5 = QIcon()
+        icon5.addFile(u":/icons/icons/x.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.close_btn.setIcon(icon5)
 
         self.horizontalLayout_4.addWidget(self.close_btn)
 
@@ -186,28 +210,14 @@ class Ui_MainWindow(object):
         self.gridLayout_2 = QGridLayout(self.main_body)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(2)
-        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_2.setContentsMargins(6, 6, 6, 6)
         self.start_menu = QFrame(self.main_body)
         self.start_menu.setObjectName(u"start_menu")
         self.start_menu.setFrameShape(QFrame.StyledPanel)
         self.start_menu.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.start_menu)
-        self.verticalLayout_4.setSpacing(0)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.current_data_label = QLabel(self.start_menu)
-        self.current_data_label.setObjectName(u"current_data_label")
-        font = QFont()
-        font.setPointSize(18)
-        font.setKerning(True)
-        self.current_data_label.setFont(font)
-        self.current_data_label.setStyleSheet(u"QLabel{\n"
-"	color: rgba(0, 0, 0, 90);\n"
-"}")
-        self.current_data_label.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_4.addWidget(self.current_data_label)
-
+        self.gridLayout_4 = QGridLayout(self.start_menu)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
         self.scrollArea_2 = QScrollArea(self.start_menu)
         self.scrollArea_2.setObjectName(u"scrollArea_2")
         self.scrollArea_2.setStyleSheet(u"QScrollArea{\n"
@@ -216,15 +226,61 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 644, 335))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 632, 316))
         self.verticalLayout_5 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
 
-        self.verticalLayout_4.addWidget(self.scrollArea_2)
+        self.gridLayout_4.addWidget(self.scrollArea_2, 2, 0, 1, 1)
+
+        self.current_data_label = QLabel(self.start_menu)
+        self.current_data_label.setObjectName(u"current_data_label")
+        self.current_data_label.setMaximumSize(QSize(16777215, 16777215))
+        font1 = QFont()
+        font1.setFamilies([u"Calibri"])
+        font1.setPointSize(20)
+        font1.setKerning(True)
+        self.current_data_label.setFont(font1)
+        self.current_data_label.setStyleSheet(u"QLabel{\n"
+"	color: rgba(0, 0, 0, 90);\n"
+"}")
+        self.current_data_label.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_4.addWidget(self.current_data_label, 0, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.start_menu, 1, 3, 3, 1)
+
+        self.calendar_menu = QFrame(self.main_body)
+        self.calendar_menu.setObjectName(u"calendar_menu")
+        self.calendar_menu.setMaximumSize(QSize(0, 0))
+        self.calendar_menu.setFrameShape(QFrame.StyledPanel)
+        self.calendar_menu.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.calendar_menu)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.find_tasks_btn = QPushButton(self.calendar_menu)
+        self.find_tasks_btn.setObjectName(u"find_tasks_btn")
+        self.find_tasks_btn.setMinimumSize(QSize(0, 20))
+        font2 = QFont()
+        font2.setFamilies([u"Calibri"])
+        font2.setPointSize(12)
+        self.find_tasks_btn.setFont(font2)
+        self.find_tasks_btn.setStyleSheet(u"QPushButton {\n"
+"	background-repeat: none;\n"
+"	border: none;\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(215, 215, 215);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(215, 255, 255);\n"
+"}")
+
+        self.verticalLayout_6.addWidget(self.find_tasks_btn)
+
+
+        self.gridLayout_2.addWidget(self.calendar_menu, 1, 2, 1, 1)
 
         self.all_tasks_menu = QFrame(self.main_body)
         self.all_tasks_menu.setObjectName(u"all_tasks_menu")
@@ -263,51 +319,38 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setHorizontalSpacing(0)
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.dateEdit = QDateEdit(self.create_menu)
-        self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setStyleSheet(u"")
-
-        self.gridLayout_3.addWidget(self.dateEdit, 0, 1, 1, 1)
-
-        self.name_label = QLabel(self.create_menu)
-        self.name_label.setObjectName(u"name_label")
-        self.name_label.setMinimumSize(QSize(190, 0))
-        self.name_label.setMaximumSize(QSize(978989, 16777215))
-        font1 = QFont()
-        font1.setPointSize(12)
-        self.name_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.name_label, 2, 0, 1, 1)
-
         self.name_edit = QLineEdit(self.create_menu)
         self.name_edit.setObjectName(u"name_edit")
+        self.name_edit.setMinimumSize(QSize(0, 30))
+        self.name_edit.setFont(font2)
+        self.name_edit.setStyleSheet(u"QLineEdit{\n"
+"	border: 2px solid rgb(120,120,120);\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(235,235,235);\n"
+"}")
+        self.name_edit.setDragEnabled(False)
 
-        self.gridLayout_3.addWidget(self.name_edit, 2, 1, 1, 1)
-
-        self.input_data_label = QLabel(self.create_menu)
-        self.input_data_label.setObjectName(u"input_data_label")
-        self.input_data_label.setMaximumSize(QSize(160, 16777215))
-        self.input_data_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.input_data_label, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.name_edit, 0, 0, 1, 1)
 
         self.timeEdit = QTimeEdit(self.create_menu)
         self.timeEdit.setObjectName(u"timeEdit")
+        self.timeEdit.setMinimumSize(QSize(0, 30))
+        self.timeEdit.setMaximumSize(QSize(200, 16777215))
+        self.timeEdit.setFont(font2)
+        self.timeEdit.setStyleSheet(u"QTimeEdit{\n"
+"	border: 2px solid rgb(120,120,120);\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(235,235,235);\n"
+"}")
 
-        self.gridLayout_3.addWidget(self.timeEdit, 1, 1, 1, 1)
-
-        self.input_time_label = QLabel(self.create_menu)
-        self.input_time_label.setObjectName(u"input_time_label")
-        self.input_time_label.setMaximumSize(QSize(160, 16777215))
-        self.input_time_label.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.input_time_label, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.timeEdit, 3, 0, 1, 1)
 
         self.add_data_btn = QPushButton(self.create_menu)
         self.add_data_btn.setObjectName(u"add_data_btn")
-        font2 = QFont()
-        font2.setPointSize(11)
-        self.add_data_btn.setFont(font2)
+        font3 = QFont()
+        font3.setFamilies([u"Calibri"])
+        font3.setPointSize(13)
+        self.add_data_btn.setFont(font3)
         self.add_data_btn.setStyleSheet(u"QPushButton {\n"
 "	background-repeat: none;\n"
 "	background-color: rgb(215, 215, 215);\n"
@@ -319,41 +362,27 @@ class Ui_MainWindow(object):
 "	background-color: rgb(215, 255, 255);\n"
 "}")
 
-        self.gridLayout_3.addWidget(self.add_data_btn, 3, 0, 1, 2)
+        self.gridLayout_3.addWidget(self.add_data_btn, 5, 0, 1, 2)
+
+        self.dateEdit = QDateEdit(self.create_menu)
+        self.dateEdit.setObjectName(u"dateEdit")
+        self.dateEdit.setMinimumSize(QSize(0, 30))
+        self.dateEdit.setMaximumSize(QSize(200, 16777215))
+        self.dateEdit.setFont(font2)
+        self.dateEdit.setStyleSheet(u"QDateEdit{\n"
+"	border: 2px solid rgb(120,120,120);\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(235,235,235);\n"
+"}")
+
+        self.gridLayout_3.addWidget(self.dateEdit, 2, 0, 1, 1)
 
         self.verticalSpacer_2 = QSpacerItem(10, 30, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_3.addItem(self.verticalSpacer_2, 4, 0, 2, 2)
+        self.gridLayout_3.addItem(self.verticalSpacer_2, 6, 0, 2, 2)
 
 
         self.gridLayout_2.addWidget(self.create_menu, 1, 0, 1, 1)
-
-        self.calendar_menu = QFrame(self.main_body)
-        self.calendar_menu.setObjectName(u"calendar_menu")
-        self.calendar_menu.setMaximumSize(QSize(0, 0))
-        self.calendar_menu.setFrameShape(QFrame.StyledPanel)
-        self.calendar_menu.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_6 = QVBoxLayout(self.calendar_menu)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.find_tasks_btn = QPushButton(self.calendar_menu)
-        self.find_tasks_btn.setObjectName(u"find_tasks_btn")
-        self.find_tasks_btn.setMinimumSize(QSize(0, 20))
-        self.find_tasks_btn.setStyleSheet(u"QPushButton {\n"
-"	background-repeat: none;\n"
-"	border: none;\n"
-"	border-radius: 10px;\n"
-"	background-color: rgb(215, 215, 215);\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"	background-color: rgb(215, 255, 255);\n"
-"}")
-
-        self.verticalLayout_6.addWidget(self.find_tasks_btn)
-
-
-        self.gridLayout_2.addWidget(self.calendar_menu, 1, 2, 1, 1)
 
 
         self.gridLayout.addWidget(self.main_body, 2, 1, 1, 1)
@@ -370,31 +399,10 @@ class Ui_MainWindow(object):
         self.verticalLayout = QVBoxLayout(self.left_menu)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 5, 0, 5)
-        self.create_task_btn = QPushButton(self.left_menu)
-        self.create_task_btn.setObjectName(u"create_task_btn")
-        self.create_task_btn.setMinimumSize(QSize(0, 30))
-        self.create_task_btn.setFont(font1)
-        self.create_task_btn.setStyleSheet(u"QPushButton {\n"
-"	background-repeat: none;\n"
-"	border: none;\n"
-"	background-color: rgb(215, 215, 215);\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"	background-color: rgb(215, 255, 255);\n"
-"}")
-        icon5 = QIcon()
-        icon5.addFile(u":/icons/icons/plus-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.create_task_btn.setIcon(icon5)
-        self.create_task_btn.setIconSize(QSize(24, 24))
-        self.create_task_btn.setFlat(False)
-
-        self.verticalLayout.addWidget(self.create_task_btn)
-
         self.calendar_btn = QPushButton(self.left_menu)
         self.calendar_btn.setObjectName(u"calendar_btn")
         self.calendar_btn.setMinimumSize(QSize(0, 30))
-        self.calendar_btn.setFont(font1)
+        self.calendar_btn.setFont(font)
         self.calendar_btn.setStyleSheet(u"QPushButton {\n"
 "	background-repeat: none;\n"
 "	border: none;\n"
@@ -414,7 +422,7 @@ class Ui_MainWindow(object):
         self.all_tasks_btn = QPushButton(self.left_menu)
         self.all_tasks_btn.setObjectName(u"all_tasks_btn")
         self.all_tasks_btn.setMinimumSize(QSize(0, 30))
-        self.all_tasks_btn.setFont(font1)
+        self.all_tasks_btn.setFont(font)
         self.all_tasks_btn.setStyleSheet(u"QPushButton {\n"
 "	background-repeat: none;\n"
 "	border: none;\n"
@@ -437,7 +445,7 @@ class Ui_MainWindow(object):
         self.settings_btn = QPushButton(self.left_menu)
         self.settings_btn.setObjectName(u"settings_btn")
         self.settings_btn.setMinimumSize(QSize(0, 30))
-        self.settings_btn.setFont(font1)
+        self.settings_btn.setFont(font)
         self.settings_btn.setStyleSheet(u"QPushButton {\n"
 "	background-repeat: none;\n"
 "	border: none;\n"
@@ -499,18 +507,16 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.left_menu_btn.setText("")
         self.home_btn.setText("")
+        self.create_task_btn.setText("")
         self.hide_btn.setText("")
         self.expand_btn.setText("")
         self.close_btn.setText("")
         self.current_data_label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.name_label.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043d\u0430\u043f\u043e\u043c\u0438\u043d\u0430\u043d\u0438\u044f:", None))
-        self.input_data_label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0430\u0442\u0443:", None))
-        self.input_time_label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0432\u0440\u0435\u043c\u044f:", None))
-        self.add_data_btn.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
         self.find_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0439\u0442\u0438", None))
-        self.create_task_btn.setText(QCoreApplication.translate("MainWindow", u"Create ", None))
-        self.calendar_btn.setText(QCoreApplication.translate("MainWindow", u"Calendar", None))
-        self.all_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"All tasks", None))
-        self.settings_btn.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0437\u0434\u0435\u0441\u044c \u043d\u043e\u0432\u0443\u044e \u0437\u0430\u0434\u0430\u0447\u0443", None))
+        self.add_data_btn.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
+        self.calendar_btn.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u043b\u0435\u043d\u0434\u0430\u0440\u044c", None))
+        self.all_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u0437\u0430\u0434\u0430\u0447\u0438", None))
+        self.settings_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
     # retranslateUi
 

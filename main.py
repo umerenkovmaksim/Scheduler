@@ -5,9 +5,10 @@ from datetime import datetime
 
 import PySide6
 from PySide6 import QtCore
-from PySide6.QtGui import QColor
-from PySide6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QSizeGrip, QWidget, QCalendarWidget
-from PySide6.QtCore import QFile, QPropertyAnimation, QEasingCurve, Qt, QSize
+from PySide6.QtGui import QColor, QTextCharFormat, QFont
+from PySide6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QSizeGrip, QWidget, QCalendarWidget, \
+    QSpinBox, QToolButton, QDateEdit
+from PySide6.QtCore import QFile, QPropertyAnimation, QEasingCurve, Qt, QSize, QDate
 from GUI.MainWindow import Ui_MainWindow
 from GUI.UiTaskWidget import Ui_Form
 
@@ -19,6 +20,50 @@ def clear_layout(layout):
             child.widget().deleteLater()
         elif child.layout() is not None:
             clear_layout(child.layout())
+
+
+class CustomDataEdit(QDateEdit):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        style_main_color = 808080
+        self.setCalendarPopup(True)
+        self.setStyleSheet(
+            "QDateEdit{border: 2px solid rgb(120,120,120);border-radius: 10px;background-color: rgb(235,235,235);}"
+        )
+
+        format = QTextCharFormat()
+        format.setForeground(QColor(Qt.black))
+        dateEditCalendarWidget = self.calendarWidget()
+        dateEditCalendarWidget.setWeekdayTextFormat(Qt.Saturday, format)
+        dateEditCalendarWidget.setWeekdayTextFormat(Qt.Sunday, format)
+        dateEditCalendarWidget.setFixedSize(300, 190)
+        dateEditCalendarWidget.findChildren(QWidget)[0].setCursor(Qt.PointingHandCursor)
+        dateEditCalendarWidget.findChildren(QSpinBox)[0].setAlignment(Qt.AlignCenter)
+        dateEditCalendarWidget.findChildren(QSpinBox)[0].setButtonSymbols(QSpinBox.NoButtons)
+        toolbtn_list = self.calendarWidget().findChildren(QToolButton)
+        for toolbtn in toolbtn_list:
+            toolbtn.setCursor(Qt.PointingHandCursor)
+
+        s = QSize(32, 32)
+        toolbtn = self.calendarWidget().findChild(QToolButton, "qt_calendar_prevmonth")
+        toolbtn.setIconSize(s)
+        toolbtn = self.calendarWidget().findChild(QToolButton, "qt_calendar_nextmonth")
+        toolbtn.setIconSize(s)
+
+        self.calendarWidget().setStyleSheet(
+            f"QCalendarWidget{{background-color:#FFFFFF;border: 1px solid #{style_main_color};}}"
+            f"QCalendarWidget QAbstractItemView:enabled{{color:#000000;"
+            f"background-color:#ffffff;"
+            f"selection-color: white;"
+            f"selection-background-color:#{style_main_color};}}"
+            f"QCalendarWidget QSpinBox#qt_calendar_yearedit{{background:#ffffff;height:34px;width:125px;selection-background-color:#{style_main_color};}}"
+            f"QCalendarWidget QToolButton{{background-color:#FFFFFF;height:34px;width:125px;color:#000000;}}"
+            f"QCalendarWidget QToolButton:hover{{border: 1px solid #{style_main_color};}}"
+            f"QCalendarWidget QToolButton::menu-indicator#qt_calendar_monthbutton{{subcontrol-position: right center;subcontrol-origin: padding;}}"
+            f"QCalendarWidget QToolButton QMenu{{background-color:#FFFFFF;width:125px;border:1px solid #{style_main_color};}}"
+            f"QCalendarWidget QToolButton QMenu::item:selected{{color:#FFFFFF;background:#{style_main_color};}}")
+        self.setDate(QDate.currentDate())
+        self.setDisplayFormat("dd-MM-yyyy")
 
 
 class TaskWidget(QWidget, Ui_Form):
@@ -104,6 +149,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.calendarWidget.setMaximumSize(QSize(999999, 99999))
 
         self.verticalLayout_6.insertWidget(0, self.calendarWidget)
+
+        font2 = QFont()
+        font2.setFamilies([u"Calibri"])
+        font2.setPointSize(12)
+        self.dateEdit = CustomDataEdit(self.create_menu)
+        self.dateEdit.setObjectName(u"dateEdit")
+        self.dateEdit.setMinimumSize(QSize(0, 30))
+        self.dateEdit.setMaximumSize(QSize(200, 16777215))
+        self.dateEdit.setFont(font2)
+
+        self.gridLayout_3.addWidget(self.dateEdit, 2, 0, 1, 1)
 
         self.close_btn.clicked.connect(self.close)
         self.add_data_btn.clicked.connect(self.add_data_to_db)
@@ -260,18 +316,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.left_menu_animation.start()
         self.left_menu_enabled = not self.left_menu_enabled
 
-    def slide_create_menu(self):
+    def slide_create_menu(self, recursion=False):
         width, height = self.create_menu.width(), self.create_menu.height()
-        current_open = [self.create_menu_enabled, self.calendar_menu_enabled, self.all_tasks_menu_enabled]
-        if current_open.count(True) >= 2 and not self.create_menu_enabled:
-            self.slide_calendar_menu()
+        self.dateEdit.setDate(QDate(*tuple(map(int, self.current_date.split('-')[::-1]))))
+        self.timeEdit.setTime(datetime.now().time())
+        now_open = [self.create_menu_enabled, self.calendar_menu_enabled, self.all_tasks_menu_enabled]
+        if any(now_open) and not self.create_menu_enabled:
+            self.slide_all_tasks_menu(True) if self.all_tasks_menu_enabled else ''
+            self.slide_calendar_menu(True) if self.calendar_menu_enabled else ''
         if width == 0:
             new_width = self.width()
         else:
             new_width = 0
 
         self.create_menu_enabled = not self.create_menu_enabled
-        self.main_menu_visible()
+        self.main_menu_visible() if not recursion else ''
         self.create_menu_animation_w.setStartValue(width)
         self.create_menu_animation_w.setEndValue(new_width)
         self.create_menu_animation_w.start()
@@ -285,17 +344,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.left_menu_animation_h.setEndValue(new_height)
         self.left_menu_animation_h.start()
 
-    def slide_calendar_menu(self):
+    def slide_calendar_menu(self, recursion=False):
         width, height = self.calendar_menu.width(), self.calendar_menu.height()
-        current_open = [self.create_menu_enabled, self.calendar_menu_enabled, self.all_tasks_menu_enabled]
-        if current_open.count(True) >= 2 and not self.calendar_menu_enabled:
-            self.slide_all_tasks_menu()
+        now_open = [self.create_menu_enabled, self.calendar_menu_enabled, self.all_tasks_menu_enabled]
+        if any(now_open) and not self.calendar_menu_enabled:
+            self.slide_all_tasks_menu(True) if self.all_tasks_menu_enabled else ''
+            self.slide_create_menu(True) if self.create_menu_enabled else ''
         if width == 0:
             new_width = self.width()
         else:
             new_width = 0
         self.calendar_menu_enabled = not self.calendar_menu_enabled
-        self.main_menu_visible()
+        self.main_menu_visible() if not recursion else ''
         self.calendar_menu_animation_w.setStartValue(width)
         self.calendar_menu_animation_w.setEndValue(new_width)
         self.calendar_menu_animation_w.start()
@@ -308,17 +368,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.calendar_menu_animation_h.setEndValue(new_height)
         self.calendar_menu_animation_h.start()
 
-    def slide_all_tasks_menu(self):
+    def slide_all_tasks_menu(self, recursion=False):
         width, height = self.all_tasks_menu.width(), self.all_tasks_menu.height()
-        current_open = [self.create_menu_enabled, self.calendar_menu_enabled, self.all_tasks_menu_enabled]
-        if current_open.count(True) >= 2 and not self.all_tasks_menu_enabled:
-            self.slide_calendar_menu()
+        now_open = [self.create_menu_enabled, self.calendar_menu_enabled, self.all_tasks_menu_enabled]
+        if any(now_open) and not self.all_tasks_menu_enabled:
+            self.slide_calendar_menu(True) if self.calendar_menu_enabled else ''
+            self.slide_create_menu(True) if self.create_menu_enabled else ''
         if width == 0:
             new_width = self.width()
         else:
             new_width = 0
         self.all_tasks_menu_enabled = not self.all_tasks_menu_enabled
-        self.main_menu_visible()
+        self.main_menu_visible() if not recursion else ''
         self.all_tasks_menu_animation_w.setStartValue(width)
         self.all_tasks_menu_animation_w.setEndValue(new_width)
         self.all_tasks_menu_animation_w.start()
