@@ -5,7 +5,7 @@ from datetime import datetime
 
 import PySide6
 from PySide6 import QtCore
-from PySide6.QtGui import QColor, QTextCharFormat, QFont
+from PySide6.QtGui import QColor, QTextCharFormat, QFont, QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QSizeGrip, QWidget, QCalendarWidget, \
     QSpinBox, QToolButton, QDateEdit
 from PySide6.QtCore import QFile, QPropertyAnimation, QEasingCurve, Qt, QSize, QDate
@@ -46,8 +46,10 @@ class CustomDataEdit(QDateEdit):
 
         s = QSize(32, 32)
         toolbtn = self.calendarWidget().findChild(QToolButton, "qt_calendar_prevmonth")
+        toolbtn.setIcon(QIcon(':/icons/icons/arrow-left.svg'))
         toolbtn.setIconSize(s)
         toolbtn = self.calendarWidget().findChild(QToolButton, "qt_calendar_nextmonth")
+        toolbtn.setIcon(QIcon(':/icons/icons/arrow-right.svg'))
         toolbtn.setIconSize(s)
 
         self.calendarWidget().setStyleSheet(
