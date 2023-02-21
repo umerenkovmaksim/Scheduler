@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow - untitledwBpeSK.ui'
+## Form generated from reading UI file 'MainWindow - untitledjJLXBg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.0
 ##
@@ -94,7 +94,6 @@ class Ui_MainWindow(object):
         self.create_task_btn.setMinimumSize(QSize(0, 30))
         self.create_task_btn.setMaximumSize(QSize(300, 16777215))
         font = QFont()
-        font.setFamilies([u"Calibri"])
         font.setPointSize(14)
         self.create_task_btn.setFont(font)
         self.create_task_btn.setStyleSheet(u"QPushButton {\n"
@@ -226,7 +225,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 632, 316))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 632, 313))
         self.verticalLayout_5 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
@@ -237,7 +236,6 @@ class Ui_MainWindow(object):
         self.current_data_label.setObjectName(u"current_data_label")
         self.current_data_label.setMaximumSize(QSize(16777215, 16777215))
         font1 = QFont()
-        font1.setFamilies([u"Calibri"])
         font1.setPointSize(20)
         font1.setKerning(True)
         self.current_data_label.setFont(font1)
@@ -263,7 +261,6 @@ class Ui_MainWindow(object):
         self.find_tasks_btn.setObjectName(u"find_tasks_btn")
         self.find_tasks_btn.setMinimumSize(QSize(0, 20))
         font2 = QFont()
-        font2.setFamilies([u"Calibri"])
         font2.setPointSize(12)
         self.find_tasks_btn.setFont(font2)
         self.find_tasks_btn.setStyleSheet(u"QPushButton {\n"
@@ -319,36 +316,9 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setHorizontalSpacing(0)
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.name_edit = QLineEdit(self.create_menu)
-        self.name_edit.setObjectName(u"name_edit")
-        self.name_edit.setMinimumSize(QSize(0, 30))
-        self.name_edit.setFont(font2)
-        self.name_edit.setStyleSheet(u"QLineEdit{\n"
-"	border: 2px solid rgb(120,120,120);\n"
-"	border-radius: 10px;\n"
-"	background-color: rgb(235,235,235);\n"
-"}")
-        self.name_edit.setDragEnabled(False)
-
-        self.gridLayout_3.addWidget(self.name_edit, 0, 0, 1, 1)
-
-        self.timeEdit = QTimeEdit(self.create_menu)
-        self.timeEdit.setObjectName(u"timeEdit")
-        self.timeEdit.setMinimumSize(QSize(0, 30))
-        self.timeEdit.setMaximumSize(QSize(200, 16777215))
-        self.timeEdit.setFont(font2)
-        self.timeEdit.setStyleSheet(u"QTimeEdit{\n"
-"	border: 2px solid rgb(120,120,120);\n"
-"	border-radius: 10px;\n"
-"	background-color: rgb(235,235,235);\n"
-"}")
-
-        self.gridLayout_3.addWidget(self.timeEdit, 3, 0, 1, 1)
-
         self.add_data_btn = QPushButton(self.create_menu)
         self.add_data_btn.setObjectName(u"add_data_btn")
         font3 = QFont()
-        font3.setFamilies([u"Calibri"])
         font3.setPointSize(13)
         self.add_data_btn.setFont(font3)
         self.add_data_btn.setStyleSheet(u"QPushButton {\n"
@@ -362,7 +332,106 @@ class Ui_MainWindow(object):
 "	background-color: rgb(215, 255, 255);\n"
 "}")
 
-        self.gridLayout_3.addWidget(self.add_data_btn, 5, 0, 1, 2)
+        self.gridLayout_3.addWidget(self.add_data_btn, 5, 0, 1, 5)
+
+        self.timeEdit = QTimeEdit(self.create_menu)
+        self.timeEdit.setObjectName(u"timeEdit")
+        self.timeEdit.setMinimumSize(QSize(0, 30))
+        self.timeEdit.setMaximumSize(QSize(200, 16777215))
+        self.timeEdit.setFont(font2)
+        self.timeEdit.setStyleSheet(u"QTimeEdit{\n"
+"	border: 2px solid rgb(120,120,120);\n"
+"	border-radius: 5px;\n"
+"	background-color: rgb(235,235,235);\n"
+"}")
+
+        self.gridLayout_3.addWidget(self.timeEdit, 3, 0, 1, 5)
+
+        self.name_edit = QLineEdit(self.create_menu)
+        self.name_edit.setObjectName(u"name_edit")
+        self.name_edit.setMinimumSize(QSize(0, 30))
+        self.name_edit.setFont(font2)
+        self.name_edit.setStyleSheet(u"QLineEdit{\n"
+"	border: 2px solid rgb(120,120,120);\n"
+"	border-radius: 5px;\n"
+"	background-color: rgb(235,235,235);\n"
+"}")
+        self.name_edit.setDragEnabled(False)
+
+        self.gridLayout_3.addWidget(self.name_edit, 0, 0, 1, 5)
+
+        self.label = QLabel(self.create_menu)
+        self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(60, 0))
+        self.label.setMaximumSize(QSize(60, 16777215))
+
+        self.gridLayout_3.addWidget(self.label, 4, 3, 1, 1)
+
+        self.again_box = QComboBox(self.create_menu)
+        self.again_box.addItem("")
+        self.again_box.addItem("")
+        self.again_box.addItem("")
+        self.again_box.setObjectName(u"again_box")
+        self.again_box.setEnabled(False)
+        self.again_box.setMaximumSize(QSize(120, 16777215))
+        font4 = QFont()
+        font4.setPointSize(11)
+        self.again_box.setFont(font4)
+        self.again_box.setStyleSheet(u"QComboBox {\n"
+"        background: rgb(235,235,235);\n"
+"        border: 2px solid rgb(120,120,120);\n"
+"        border-radius: 5px;   \n"
+"    }\n"
+"\n"
+"    QComboBox:hover {\n"
+"        border-color: rgb(215, 215, 215);   \n"
+"    }\n"
+"\n"
+"    QComboBox:on {\n"
+"        border-bottom-width: 3px;\n"
+"        border-bottom-color: rgb(0, 95, 185);\n"
+"        border-bottom-right-radius: 0px;\n"
+"        border-bottom-left-radius: 0px;\n"
+"    }\n"
+"\n"
+"    QComboBox::drop-down:on {\n"
+"        border-bottom-right-radius: 0px;\n"
+"    }\n"
+"\n"
+"    QComboBox QAbstractItemView {\n"
+"        background: rgb(250, 250, 250);\n"
+"        border-width: 1px;\n"
+"        border-style: solid;\n"
+"        border-color: rgb(235, 235, 235); \n"
+"    }\n"
+"\n"
+"    QComboBox::drop-down {\n"
+"        background: rgb(235, 235, 235);\n"
+"        border: none;\n"
+"		border-radius: 2px\n"
+"    }")
+
+        self.gridLayout_3.addWidget(self.again_box, 4, 1, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(10, 30, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_3.addItem(self.verticalSpacer_2, 6, 0, 2, 5)
+
+        self.again_label = QLabel(self.create_menu)
+        self.again_label.setObjectName(u"again_label")
+        self.again_label.setEnabled(False)
+        self.again_label.setMinimumSize(QSize(80, 0))
+        self.again_label.setMaximumSize(QSize(80, 16777215))
+        self.again_label.setFont(font4)
+
+        self.gridLayout_3.addWidget(self.again_label, 4, 0, 1, 1)
+
+        self.label_2 = QLabel(self.create_menu)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(10, 0))
+        self.label_2.setMaximumSize(QSize(10, 16777215))
+
+        self.gridLayout_3.addWidget(self.label_2, 4, 2, 1, 1)
 
         self.dateEdit = QDateEdit(self.create_menu)
         self.dateEdit.setObjectName(u"dateEdit")
@@ -371,15 +440,11 @@ class Ui_MainWindow(object):
         self.dateEdit.setFont(font2)
         self.dateEdit.setStyleSheet(u"QDateEdit{\n"
 "	border: 2px solid rgb(120,120,120);\n"
-"	border-radius: 10px;\n"
+"	border-radius: 5px;\n"
 "	background-color: rgb(235,235,235);\n"
 "}")
 
-        self.gridLayout_3.addWidget(self.dateEdit, 2, 0, 1, 1)
-
-        self.verticalSpacer_2 = QSpacerItem(10, 30, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_3.addItem(self.verticalSpacer_2, 6, 0, 2, 2)
+        self.gridLayout_3.addWidget(self.dateEdit, 2, 0, 1, 4)
 
 
         self.gridLayout_2.addWidget(self.create_menu, 1, 0, 1, 1)
@@ -513,8 +578,15 @@ class Ui_MainWindow(object):
         self.close_btn.setText("")
         self.current_data_label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.find_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0439\u0442\u0438", None))
-        self.name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0437\u0434\u0435\u0441\u044c \u043d\u043e\u0432\u0443\u044e \u0437\u0430\u0434\u0430\u0447\u0443", None))
         self.add_data_btn.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
+        self.name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0437\u0434\u0435\u0441\u044c \u043d\u043e\u0432\u0443\u044e \u0437\u0430\u0434\u0430\u0447\u0443", None))
+        self.label.setText("")
+        self.again_box.setItemText(0, QCoreApplication.translate("MainWindow", u"\u0415\u0436\u0435\u0434\u043d\u0435\u0432\u043d\u043e", None))
+        self.again_box.setItemText(1, QCoreApplication.translate("MainWindow", u"\u0415\u0436\u0435\u043d\u0435\u0434\u0435\u043b\u044c\u043d\u043e", None))
+        self.again_box.setItemText(2, QCoreApplication.translate("MainWindow", u"\u0415\u0436\u0435\u043c\u0435\u0441\u044f\u0447\u043d\u043e", None))
+
+        self.again_label.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0432\u0442\u043e\u0440\u044f\u0442\u044c", None))
+        self.label_2.setText("")
         self.calendar_btn.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u043b\u0435\u043d\u0434\u0430\u0440\u044c", None))
         self.all_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u0437\u0430\u0434\u0430\u0447\u0438", None))
         self.settings_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
