@@ -1,5 +1,7 @@
 import sqlite3
 from datetime import datetime
+from datetime import date as to_date
+from qt_material import apply_stylesheet
 
 from PySide6.QtCore import Qt, QDate, QTime
 from PySide6.QtWidgets import QWidget
@@ -14,14 +16,27 @@ class TaskWidget(QWidget, Ui_Form):
         self.editing = False
         self.parent, self.name, self.id, self.date, self.time, self.accept = parent, name, id, date, time, accept
         self.repeat = repeat
+        task_date = to_date(*tuple(map(int, self.date.split('-')[::-1])))
         if self.repeat == 'Ежедневно' and self.date != datetime.today().date().strftime('%d-%m-%Y'):
+            print(1)
             self.date = datetime.today().date().strftime('%d-%m-%Y')
             self.accept = False
             self.save()
-        self.data_and_time.setText(f'{date} {time}')
-        if (self.date != datetime.today().date().strftime(
-                '%d-%m-%Y') or self.parent.all_tasks_menu_enabled):
+        elif self.repeat == 'Еженедельно' and abs((datetime.today().date() - task_date).days) > 0 and (
+                datetime.today().date() - task_date).days % 7 == 0:
+            self.date = datetime.today().date().strftime('%d-%m-%Y')
+            self.accept = False
+            self.save()
+        elif self.repeat == 'Ежемесячно' and abs((datetime.today().date() - task_date).days) > 0 and (
+                datetime.today().date().day == task_date.day):
+            self.date = datetime.today().date().strftime('%d-%m-%Y')
+            self.accept = False
+            self.save()
+        self.data_and_time.setText(f'{date} {time}' if self.parent.all_tasks_menu_enabled else f'{time}')
+        if self.date != datetime.today().date().strftime('%d-%m-%Y') or (
+                self.parent.current_date != self.date) or self.parent.all_tasks_menu_enabled:
             self.accept_btn.hide()
+
         self.setMaximumHeight(100)
         self.setAttribute(Qt.WA_StyledBackground, True)
         self.repeat_label.setMaximumWidth(0) if not self.repeat else ''
@@ -53,6 +68,8 @@ class TaskWidget(QWidget, Ui_Form):
         self.parent.calendar_btn.clicked.connect(lambda: self.cancel_edited_task(True))
         self.parent.all_tasks_btn.clicked.connect(lambda: self.cancel_edited_task(True))
 
+    # def change_theme(self, theme):
+    #
     def edit_task(self):
         self.parent.add_data_btn.setText('Сохранить')
         self.parent.dateEdit.setDate(QDate(*tuple(map(int, self.date.split('-')[::-1]))))

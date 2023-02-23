@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'untitlednhyVvr.ui'
+## Form generated from reading UI file 'untitledMNTVBi.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.0
 ##
@@ -18,11 +18,12 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(388, 70)
+        Form.resize(388, 76)
         Form.setAutoFillBackground(False)
         Form.setStyleSheet(u"")
         self.gridLayout = QGridLayout(Form)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setHorizontalSpacing(0)
         self.delete_btn = QPushButton(Form)
         self.delete_btn.setObjectName(u"delete_btn")
         self.delete_btn.setMinimumSize(QSize(0, 35))

@@ -2,6 +2,8 @@ from PySide6.QtCore import QSize, QDate
 from PySide6.QtGui import QTextCharFormat, QColor, Qt, QIcon
 from PySide6.QtWidgets import QDateEdit, QWidget, QSpinBox, QToolButton
 
+from qt_material import apply_stylesheet
+
 
 class CustomDataEdit(QDateEdit):
     def __init__(self, parent=None):
@@ -9,7 +11,7 @@ class CustomDataEdit(QDateEdit):
         style_main_color = 808080
         self.setCalendarPopup(True)
         self.setStyleSheet(
-            "QDateEdit{border: 2px solid rgb(120,120,120);border-radius: 5px;background-color: rgb(235,235,235);}"
+            "QDateEdit{border: 2px solid rgb(120,120,120);border-radius: 5px;background-color: rgb(230,230,230);}"
             f"QDateEdit::drop-down{{border:none;}}"
             f"QDateEdit::down-arrow{{image: url(:/icons/icons/chevron-down.svg);border: none;}}color: white;")
 
@@ -49,3 +51,4 @@ class CustomDataEdit(QDateEdit):
             f"QCalendarWidget QToolButton QMenu::item:selected{{color:#FFFFFF;background:#{style_main_color};}}")
         self.setDate(QDate.currentDate())
         self.setDisplayFormat("dd-MM-yyyy")
+

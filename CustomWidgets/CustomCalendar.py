@@ -6,6 +6,7 @@ class CustomCalendar(QCalendarWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.clicked.connect(self.click)
+        self.setStyleSheet(open('CustomWidgets/CalendarStyle.css').read())
 
     def paintCell(self, painter, rect, date):
         QCalendarWidget.paintCell(self, painter, rect, date)

@@ -1,0 +1,46 @@
+QCalendarWidget QHeaderView {
+    qproperty-minimumSectionSize:0;
+}
+QCalendarWidget QMenu{
+    background-color: rgb(215,215,215);
+    color: black;
+}
+QCalendarWidget QToolButton{
+background-color:black;
+color: black;
+icon-size: 30px;
+}
+#qt_calendar_calendarview {
+    background-color: rgba(215,215,215,1);
+    font: 16px;
+}
+#qt_calendar_monthbutton {
+    background-color: rgba(215,215,215,1);
+}
+#qt_calendar_yearbutton {
+    background-color: rgba(215,215,215,1);
+}
+#qt_calendar_yearedit {
+    background-color: rgba(215,215,215,1);
+}
+#qt_calendar_navigationbar {
+    background-color: rgba(215,215,215,1);
+}
+QToolButton#qt_calendar_prevmonth {
+    background: transparent;
+    border: none;
+    width: 40px;
+    qproperty-icon: url(:/icons/icons/arrow-left.svg);
+}
+QToolButton#qt_calendar_nextmonth {
+    background: transparent;
+    border: none;
+    width: 40px;
+    qproperty-icon: url(:/icons/icons/arrow-right.svg);
+}
+QCalendarWidget QAbstractItemView {
+    color: black;
+}
+QCalendarWidget QHeaderView:section {
+    color: black;
+}
