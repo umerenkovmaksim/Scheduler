@@ -1,2 +1,3 @@
 auto_delete=1
-notifications_enabled=0
+notifications_enabled=1
+auto_run=1

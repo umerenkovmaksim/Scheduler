@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow - untitledTZkspo.ui'
+## Form generated from reading UI file 'MainWindow - untitledcIKFqc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.0
 ##
@@ -742,6 +742,51 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setSpacing(6)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(-1, -1, -1, 0)
+        self.label_3 = QLabel(self.settings_menu)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setEnabled(False)
+        self.label_3.setMaximumSize(QSize(110, 16777215))
+        self.label_3.setFont(font4)
+
+        self.gridLayout_5.addWidget(self.label_3, 4, 0, 1, 1)
+
+        self.auto_delete_check = QCheckBox(self.settings_menu)
+        self.auto_delete_check.setObjectName(u"auto_delete_check")
+        self.auto_delete_check.setMinimumSize(QSize(0, 30))
+        self.auto_delete_check.setFont(font4)
+        self.auto_delete_check.setStyleSheet(u"QCheckBox::indicator {\n"
+"                width: 15px;\n"
+"                height: 15px;\n"
+"            }\n"
+"            QCheckBox::indicator:unchecked {\n"
+"                border: 2px solid #C4C4C4;\n"
+"                border-radius: 5px;\n"
+"            }\n"
+"            QCheckBox::indicator:checked {\n"
+"                background-color: #00BFFF;\n"
+"                border: none;\n"
+"				border-radius: 5px;\n"
+"            }\n"
+"            QCheckBox::indicator:hover {\n"
+"                border: 2px solid #1E90FF;\n"
+"            }\n"
+"            QCheckBox::indicator:checked:hover {\n"
+"                background-color: #1E90FF;\n"
+"            }\n"
+"            QCheckBox::indicator:checked:disabled {\n"
+"                background-color: #B0C4DE;\n"
+"            }\n"
+"            QCheckBox::indicator:unchecked:disabled {\n"
+"                border: 2px solid #B0C4DE;\n"
+"                border-radius: 5px;\n"
+"            }\n"
+"            QCheckBox::indicator:indeterminate {\n"
+"                back"
+                        "ground-color: #C4C4C4;\n"
+"            }")
+
+        self.gridLayout_5.addWidget(self.auto_delete_check, 0, 0, 1, 5)
+
         self.notification_timer = QSpinBox(self.settings_menu)
         self.notification_timer.setObjectName(u"notification_timer")
         self.notification_timer.setEnabled(False)
@@ -761,7 +806,11 @@ class Ui_MainWindow(object):
 "                background-color: transparent;\n"
 "            }	")
 
-        self.gridLayout_5.addWidget(self.notification_timer, 3, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.notification_timer, 4, 1, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_5.addItem(self.verticalSpacer_3, 5, 2, 1, 1)
 
         self.frame_2 = QFrame(self.settings_menu)
         self.frame_2.setObjectName(u"frame_2")
@@ -873,7 +922,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addWidget(self.cancel_btn)
 
 
-        self.gridLayout_5.addWidget(self.frame_2, 5, 0, 1, 5)
+        self.gridLayout_5.addWidget(self.frame_2, 6, 0, 1, 5)
 
         self.notification_check = QCheckBox(self.settings_menu)
         self.notification_check.setObjectName(u"notification_check")
@@ -909,7 +958,7 @@ class Ui_MainWindow(object):
                         "ground-color: #C4C4C4;\n"
 "            }")
 
-        self.gridLayout_5.addWidget(self.notification_check, 1, 0, 1, 4)
+        self.gridLayout_5.addWidget(self.notification_check, 2, 0, 1, 4)
 
         self.label_4 = QLabel(self.settings_menu)
         self.label_4.setObjectName(u"label_4")
@@ -918,25 +967,12 @@ class Ui_MainWindow(object):
         self.label_4.setMaximumSize(QSize(50, 16777215))
         self.label_4.setFont(font4)
 
-        self.gridLayout_5.addWidget(self.label_4, 3, 2, 1, 3)
+        self.gridLayout_5.addWidget(self.label_4, 4, 2, 1, 3)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_5.addItem(self.verticalSpacer_3, 4, 2, 1, 1)
-
-        self.label_3 = QLabel(self.settings_menu)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setEnabled(False)
-        self.label_3.setMaximumSize(QSize(110, 16777215))
-        self.label_3.setFont(font4)
-
-        self.gridLayout_5.addWidget(self.label_3, 3, 0, 1, 1)
-
-        self.auto_delete_check = QCheckBox(self.settings_menu)
-        self.auto_delete_check.setObjectName(u"auto_delete_check")
-        self.auto_delete_check.setMinimumSize(QSize(0, 30))
-        self.auto_delete_check.setFont(font4)
-        self.auto_delete_check.setStyleSheet(u"QCheckBox::indicator {\n"
+        self.autorun_box = QCheckBox(self.settings_menu)
+        self.autorun_box.setObjectName(u"autorun_box")
+        self.autorun_box.setFont(font4)
+        self.autorun_box.setStyleSheet(u"QCheckBox::indicator {\n"
 "                width: 15px;\n"
 "                height: 15px;\n"
 "            }\n"
@@ -967,7 +1003,7 @@ class Ui_MainWindow(object):
                         "ground-color: #C4C4C4;\n"
 "            }")
 
-        self.gridLayout_5.addWidget(self.auto_delete_check, 0, 0, 1, 5)
+        self.gridLayout_5.addWidget(self.autorun_box, 1, 0, 1, 5)
 
 
         self.gridLayout_2.addWidget(self.settings_menu, 2, 1, 2, 1)
@@ -1006,11 +1042,12 @@ class Ui_MainWindow(object):
         self.previous_day_btn.setText("")
         self.current_data_label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.next_day_btn.setText("")
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u043e\u0432\u0435\u0449\u0430\u0442\u044c \u0437\u0430", None))
+        self.auto_delete_check.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0435 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u0437\u0430\u0434\u0430\u0447\u0438 \u043f\u043e \u0438\u0441\u0442\u0435\u0447\u0435\u043d\u0438\u044e \u0438\u0445 \u0441\u0440\u043e\u043a\u0430 ", None))
         self.apply_btn.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c", None))
         self.cancel_btn.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043c\u0435\u043d\u0430", None))
         self.notification_check.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u044f \u043e \u0437\u0430\u0434\u0430\u0447\u0430\u0445", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u043c\u0438\u043d\u0443\u0442", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u043e\u0432\u0435\u0449\u0430\u0442\u044c \u0437\u0430", None))
-        self.auto_delete_check.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0435 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u0437\u0430\u0434\u0430\u0447\u0438 \u043f\u043e \u0438\u0441\u0442\u0435\u0447\u0435\u043d\u0438\u044e \u0438\u0445 \u0441\u0440\u043e\u043a\u0430 ", None))
+        self.autorun_box.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043f\u0443\u0441\u043a\u0430\u0442\u044c \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0432\u043c\u0435\u0441\u0442\u0435 \u0441 Windows", None))
     # retranslateUi
 

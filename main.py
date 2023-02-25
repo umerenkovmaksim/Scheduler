@@ -3,6 +3,7 @@ import datetime
 import os
 import signal
 import subprocess
+import winreg
 from datetime import timedelta
 import sys
 import time
@@ -17,6 +18,8 @@ from CustomWidgets.Switcher import *
 from CustomWidgets.TaskWidget import *
 from GUI.MainWindow import Ui_MainWindow
 from NotificationThread import NotificationThread, TimerManager
+
+APP_NAME = "Планировщик"
 
 
 def clear_layout(layout):
@@ -38,7 +41,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         myappid = 'mycompany.myproduct.subproduct.version'  # Настройка для отображения иконки в
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)  # панели задач
         # --------------------------------------------------------------------
-        subprocess.call(['python', 'Telegram/TelegramBot.py'])
 
         self.left_menu_btn.clicked.connect(lambda: self.slide_left_menu())
         QSizeGrip(self.size_grip)
@@ -49,6 +51,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             settings = file.readlines()
             self.auto_delete = bool(int(settings[0].split('=')[1]))
             self.notifications_enabled = bool(int(settings[1].split('=')[1]))
+            self.autorun = bool(int(settings[2].split('=')[1]))
         self.tray_icon = QSystemTrayIcon(self)
         self.tray_icon.setIcon(QtGui.QIcon('GUI/icons/app_icon.png'))
         self.tray_icon.activated.connect(
@@ -125,6 +128,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.load_tasks()
         self.load_animations()
         self.load_tasks_notification()
+        self.load_settings()
 
     def terminate(self):
         self.notifications.cancel_timers()
@@ -156,10 +160,36 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         delta = event.pos() - self.old_pos
         self.move(self.pos() + delta)
 
-    def connect_telegram_bot(self):
-        bot = TelegramBot()
-        bot.start()
-        bot.send_message('Привет, я бот! Я отправил это сообщение из Python скрипта.')
+    def load_settings(self):
+        if self.auto_delete:
+            self.dont_show = []
+            today = datetime.today().date()
+            for elem in self.data_from_db:
+                elem_date = to_date(*tuple(map(int, elem[2].split('-')[::-1])))
+                if (elem_date - today).days <= 0 and elem_date != today and not elem[5]:
+                    self.dont_show.append(elem[0])
+
+    def set_autorun_on_startup(self):
+        app_path = os.path.abspath("Планировщик.exe")
+        key = winreg.OpenKey(
+            winreg.HKEY_CURRENT_USER,
+            r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run",
+            0,
+            winreg.KEY_WRITE
+        )
+        winreg.SetValueEx(key, APP_NAME, 0, winreg.REG_SZ, app_path)
+
+        winreg.CloseKey(key)
+
+    def disable_autorun_on_startup(self):
+        key = winreg.OpenKey(
+            winreg.HKEY_CURRENT_USER,
+            r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run",
+            0,
+            winreg.KEY_WRITE
+        )
+        winreg.DeleteValue(key, APP_NAME)
+        winreg.CloseKey(key)
 
     def minimized_to_tray(self):
         self.hide()
@@ -235,6 +265,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def apply_changes(self):
         self.auto_delete = self.auto_delete_check.isChecked()
         self.notifications_enabled = self.notification_check.isChecked()
+        self.autorun = self.autorun_box.isChecked()
         self.return_to_home(False,
                             self.create_menu_enabled,
                             self.calendar_menu_enabled,
@@ -242,13 +273,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                             self.settings_menu_enabled,
                             False)
         self.save_settings_in_file()
-        if self.auto_delete:
-            self.dont_show = []
-            today = datetime.today().date()
-            for elem in self.data_from_db:
-                elem_date = to_date(*tuple(map(int, elem[2].split('-')[::-1])))
-                if (elem_date - today).days < -1 and not elem[5]:
-                    self.dont_show.append(elem[0])
+        self.load_settings()
+        if self.autorun_box.isChecked():
+            self.set_autorun_on_startup()
+        else:
+            self.disable_autorun_on_startup()
         self.load_tasks_notification()
 
     def find_tasks_to_day(self):
@@ -295,7 +324,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.verticalLayout_5.addWidget(QLabel())
         else:
             for elem in data_from_db:
-                self.verticalLayout_5.addWidget(TaskWidget(self, *elem))
+                if elem[0] not in self.dont_show:
+                    self.verticalLayout_5.addWidget(TaskWidget(self, *elem))
         con.commit()
         con.close()
         if return_data:
@@ -303,7 +333,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def save_settings_in_file(self):
         with open('settings.txt', mode='w') as file:
-            file.write(f'auto_delete={int(self.auto_delete)}\nnotifications_enabled={int(self.notifications_enabled)}')
+            file.write(f'auto_delete={int(self.auto_delete)}\nnotifications_enabled={int(self.notifications_enabled)}\n'
+                       f'auto_run={int(self.autorun)}')
 
     def load_tasks(self):
         con = sqlite3.connect('SchedulerApp.db')
@@ -428,6 +459,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             if self.settings_menu_enabled:
                 self.auto_delete_check.setChecked(self.auto_delete)
                 self.notification_check.setChecked(self.notifications_enabled)
+                self.autorun_box.setChecked(self.autorun)
             self.main_menu_visible() if not recursion else ''
             self.settings_menu_animation_w.setStartValue(width)
             self.settings_menu_animation_w.setEndValue(new_width)
