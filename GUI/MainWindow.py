@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow - untitledcIKFqc.ui'
+## Form generated from reading UI file 'MainWindow - untitledenfnUA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.0
 ##
@@ -615,7 +615,7 @@ class Ui_MainWindow(object):
         self.find_tasks_btn.setFont(font4)
         self.find_tasks_btn.setStyleSheet(u"QPushButton {\n"
 "	background-repeat: none;\n"
-"	border: none;\n"
+"	border: 2px solid rgb(120, 120, 120);\n"
 "	border-radius: 10px;\n"
 "	background-color: rgb(215, 215, 215);\n"
 "}\n"

@@ -35,6 +35,7 @@ class NotificationThread:
         time_delta = (self.notify_time - datetime.datetime.now()).total_seconds()
         if time_delta > 0 and not self.task[4]:
             self.timer = threading.Timer(time_delta - self.add_time * 60, self.send_notification)
+            print(time_delta)
             self.timer.setName('Планировщик задач')
             self.timer.start()
 

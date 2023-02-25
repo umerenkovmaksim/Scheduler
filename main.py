@@ -2,7 +2,6 @@ import ctypes
 import datetime
 import os
 import signal
-import subprocess
 import winreg
 from datetime import timedelta
 import sys
@@ -365,6 +364,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         con.commit()
         con.close()
         self.load_tasks()
+        self.load_tasks_notification()
 
     def return_to_home(self, left_menu, create_menu, calendar_menu, all_tasks_menu, settings_menu, change_date):
         if time.time() - self.timeout > 0.4:

@@ -1,7 +1,6 @@
 import sqlite3
 from datetime import datetime
 from datetime import date as to_date
-from qt_material import apply_stylesheet
 
 from PySide6.QtCore import Qt, QDate, QTime
 from PySide6.QtWidgets import QWidget
