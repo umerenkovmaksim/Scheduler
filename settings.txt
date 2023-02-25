@@ -1,0 +1,2 @@
+auto_delete=1
+notifications_enabled=0

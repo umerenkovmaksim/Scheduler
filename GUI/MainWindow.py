@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow - untitledjygPsc.ui'
+## Form generated from reading UI file 'MainWindow - untitledTZkspo.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.0
 ##
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(669, 410)
+        MainWindow.resize(619, 410)
         MainWindow.setMinimumSize(QSize(0, 0))
         MainWindow.setMaximumSize(QSize(9998798, 16777215))
         self.centralwidget = QWidget(MainWindow)
@@ -27,120 +27,6 @@ class Ui_MainWindow(object):
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.left_menu = QFrame(self.centralwidget)
-        self.left_menu.setObjectName(u"left_menu")
-        self.left_menu.setMinimumSize(QSize(0, 0))
-        self.left_menu.setMaximumSize(QSize(0, 16777215))
-        self.left_menu.setStyleSheet(u"QFrame{\n"
-"	background-color: rgb(215, 215, 215);\n"
-"}")
-        self.left_menu.setFrameShape(QFrame.StyledPanel)
-        self.left_menu.setFrameShadow(QFrame.Raised)
-        self.verticalLayout = QVBoxLayout(self.left_menu)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 5, 0, 5)
-        self.calendar_btn = QPushButton(self.left_menu)
-        self.calendar_btn.setObjectName(u"calendar_btn")
-        self.calendar_btn.setMinimumSize(QSize(0, 30))
-        font = QFont()
-        font.setPointSize(14)
-        self.calendar_btn.setFont(font)
-        self.calendar_btn.setStyleSheet(u"QPushButton {\n"
-"	background-repeat: none;\n"
-"	border: none;\n"
-"	background-color: rgb(215, 215, 215);\n"
-"}\n"
-"QPushButton::hover{\n"
-"	background-color: rgb(215, 255, 255);\n"
-"	border-radius: 5px;\n"
-"}")
-        icon = QIcon()
-        icon.addFile(u":/icons/icons/calendar.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.calendar_btn.setIcon(icon)
-        self.calendar_btn.setIconSize(QSize(24, 24))
-        self.calendar_btn.setFlat(False)
-
-        self.verticalLayout.addWidget(self.calendar_btn)
-
-        self.all_tasks_btn = QPushButton(self.left_menu)
-        self.all_tasks_btn.setObjectName(u"all_tasks_btn")
-        self.all_tasks_btn.setMinimumSize(QSize(0, 30))
-        self.all_tasks_btn.setFont(font)
-        self.all_tasks_btn.setStyleSheet(u"QPushButton {\n"
-"	background-repeat: none;\n"
-"	border: none;\n"
-"	background-color: rgb(215, 215, 215);\n"
-"}\n"
-"QPushButton::hover{\n"
-"	background-color: rgb(215, 255, 255);\n"
-"	border-radius: 5px;\n"
-"}")
-        icon1 = QIcon()
-        icon1.addFile(u":/icons/icons/clipboard.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.all_tasks_btn.setIcon(icon1)
-        self.all_tasks_btn.setIconSize(QSize(24, 24))
-
-        self.verticalLayout.addWidget(self.all_tasks_btn)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer)
-
-        self.settings_btn = QPushButton(self.left_menu)
-        self.settings_btn.setObjectName(u"settings_btn")
-        self.settings_btn.setMinimumSize(QSize(0, 30))
-        self.settings_btn.setFont(font)
-        self.settings_btn.setStyleSheet(u"QPushButton {\n"
-"	background-repeat: none;\n"
-"	border: none;\n"
-"	background-color: rgb(215, 215, 215);\n"
-"}\n"
-"QPushButton::hover{\n"
-"	background-color: rgb(215, 255, 255);\n"
-"	border-radius: 5px;\n"
-"}")
-        icon2 = QIcon()
-        icon2.addFile(u":/icons/icons/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.settings_btn.setIcon(icon2)
-        self.settings_btn.setIconSize(QSize(24, 24))
-        self.settings_btn.setFlat(False)
-
-        self.verticalLayout.addWidget(self.settings_btn)
-
-
-        self.gridLayout.addWidget(self.left_menu, 2, 0, 1, 1)
-
-        self.bottom_bar = QFrame(self.centralwidget)
-        self.bottom_bar.setObjectName(u"bottom_bar")
-        self.bottom_bar.setMinimumSize(QSize(0, 25))
-        self.bottom_bar.setMaximumSize(QSize(16777215, 16777215))
-        self.bottom_bar.setStyleSheet(u"QFrame{\n"
-"	background-color: rgb(215, 215, 215);\n"
-"}")
-        self.bottom_bar.setFrameShape(QFrame.StyledPanel)
-        self.bottom_bar.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.bottom_bar)
-        self.horizontalLayout_6.setSpacing(0)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.status_bar = QFrame(self.bottom_bar)
-        self.status_bar.setObjectName(u"status_bar")
-        self.status_bar.setFrameShape(QFrame.StyledPanel)
-        self.status_bar.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_6.addWidget(self.status_bar)
-
-        self.size_grip = QFrame(self.bottom_bar)
-        self.size_grip.setObjectName(u"size_grip")
-        self.size_grip.setMaximumSize(QSize(20, 16777215))
-        self.size_grip.setFrameShape(QFrame.StyledPanel)
-        self.size_grip.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_6.addWidget(self.size_grip)
-
-
-        self.gridLayout.addWidget(self.bottom_bar, 3, 0, 1, 2)
-
         self.main_header = QFrame(self.centralwidget)
         self.main_header.setObjectName(u"main_header")
         self.main_header.setMinimumSize(QSize(0, 35))
@@ -177,9 +63,9 @@ class Ui_MainWindow(object):
 "	background-color: rgb(215, 255, 255);\n"
 "border-radius: 5px;\n"
 "}")
-        icon3 = QIcon()
-        icon3.addFile(u":/icons/icons/align-left.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.left_menu_btn.setIcon(icon3)
+        icon = QIcon()
+        icon.addFile(u":/icons/icons/align-left.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.left_menu_btn.setIcon(icon)
         self.left_menu_btn.setIconSize(QSize(24, 24))
         self.left_menu_btn.setFlat(False)
 
@@ -198,9 +84,9 @@ class Ui_MainWindow(object):
 "	background-color: rgb(215, 255, 255);\n"
 "	border-radius: 5px;\n"
 "}")
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/icons/home.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.home_btn.setIcon(icon4)
+        icon1 = QIcon()
+        icon1.addFile(u":/icons/icons/home.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.home_btn.setIcon(icon1)
         self.home_btn.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.home_btn)
@@ -209,6 +95,8 @@ class Ui_MainWindow(object):
         self.create_task_btn.setObjectName(u"create_task_btn")
         self.create_task_btn.setMinimumSize(QSize(0, 30))
         self.create_task_btn.setMaximumSize(QSize(300, 16777215))
+        font = QFont()
+        font.setPointSize(14)
         self.create_task_btn.setFont(font)
         self.create_task_btn.setStyleSheet(u"QPushButton {\n"
 "	background-repeat: none;\n"
@@ -219,9 +107,9 @@ class Ui_MainWindow(object):
 "	background-color: rgb(215, 255, 255);\n"
 "	border-radius: 5px;\n"
 "}")
-        icon5 = QIcon()
-        icon5.addFile(u":/icons/icons/plus-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.create_task_btn.setIcon(icon5)
+        icon2 = QIcon()
+        icon2.addFile(u":/icons/icons/plus-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.create_task_btn.setIcon(icon2)
         self.create_task_btn.setIconSize(QSize(24, 24))
         self.create_task_btn.setFlat(False)
 
@@ -267,9 +155,9 @@ class Ui_MainWindow(object):
 "	background-color: rgb(215, 255, 255);\n"
 "	border-radius: 5px;\n"
 "}")
-        icon6 = QIcon()
-        icon6.addFile(u":/icons/icons/minus.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.hide_btn.setIcon(icon6)
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/icons/minus.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.hide_btn.setIcon(icon3)
 
         self.horizontalLayout_4.addWidget(self.hide_btn)
 
@@ -286,9 +174,9 @@ class Ui_MainWindow(object):
 "	background-color: rgb(215, 255, 255);\n"
 "	border-radius: 5px;\n"
 "}")
-        icon7 = QIcon()
-        icon7.addFile(u":/icons/icons/maximize-2.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.expand_btn.setIcon(icon7)
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/icons/maximize-2.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.expand_btn.setIcon(icon4)
 
         self.horizontalLayout_4.addWidget(self.expand_btn)
 
@@ -305,9 +193,9 @@ class Ui_MainWindow(object):
 "	background-color: rgb(215, 255, 255);\n"
 "	border-radius: 5px;\n"
 "}")
-        icon8 = QIcon()
-        icon8.addFile(u":/icons/icons/x.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.close_btn.setIcon(icon8)
+        icon5 = QIcon()
+        icon5.addFile(u":/icons/icons/x.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.close_btn.setIcon(icon5)
 
         self.horizontalLayout_4.addWidget(self.close_btn)
 
@@ -320,6 +208,118 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.main_header, 0, 0, 1, 2)
 
+        self.bottom_bar = QFrame(self.centralwidget)
+        self.bottom_bar.setObjectName(u"bottom_bar")
+        self.bottom_bar.setMinimumSize(QSize(0, 25))
+        self.bottom_bar.setMaximumSize(QSize(16777215, 16777215))
+        self.bottom_bar.setStyleSheet(u"QFrame{\n"
+"	background-color: rgb(215, 215, 215);\n"
+"}")
+        self.bottom_bar.setFrameShape(QFrame.StyledPanel)
+        self.bottom_bar.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.bottom_bar)
+        self.horizontalLayout_6.setSpacing(0)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.status_bar = QFrame(self.bottom_bar)
+        self.status_bar.setObjectName(u"status_bar")
+        self.status_bar.setFrameShape(QFrame.StyledPanel)
+        self.status_bar.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_6.addWidget(self.status_bar)
+
+        self.size_grip = QFrame(self.bottom_bar)
+        self.size_grip.setObjectName(u"size_grip")
+        self.size_grip.setMaximumSize(QSize(20, 16777215))
+        self.size_grip.setFrameShape(QFrame.StyledPanel)
+        self.size_grip.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_6.addWidget(self.size_grip)
+
+
+        self.gridLayout.addWidget(self.bottom_bar, 3, 0, 1, 2)
+
+        self.left_menu = QFrame(self.centralwidget)
+        self.left_menu.setObjectName(u"left_menu")
+        self.left_menu.setMinimumSize(QSize(0, 0))
+        self.left_menu.setMaximumSize(QSize(0, 16777215))
+        self.left_menu.setStyleSheet(u"QFrame{\n"
+"	background-color: rgb(215, 215, 215);\n"
+"}")
+        self.left_menu.setFrameShape(QFrame.StyledPanel)
+        self.left_menu.setFrameShadow(QFrame.Raised)
+        self.verticalLayout = QVBoxLayout(self.left_menu)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 5, 0, 5)
+        self.calendar_btn = QPushButton(self.left_menu)
+        self.calendar_btn.setObjectName(u"calendar_btn")
+        self.calendar_btn.setMinimumSize(QSize(0, 30))
+        self.calendar_btn.setFont(font)
+        self.calendar_btn.setStyleSheet(u"QPushButton {\n"
+"	background-repeat: none;\n"
+"	border: none;\n"
+"	background-color: rgb(215, 215, 215);\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(215, 255, 255);\n"
+"	border-radius: 5px;\n"
+"}")
+        icon6 = QIcon()
+        icon6.addFile(u":/icons/icons/calendar.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.calendar_btn.setIcon(icon6)
+        self.calendar_btn.setIconSize(QSize(24, 24))
+        self.calendar_btn.setFlat(False)
+
+        self.verticalLayout.addWidget(self.calendar_btn)
+
+        self.all_tasks_btn = QPushButton(self.left_menu)
+        self.all_tasks_btn.setObjectName(u"all_tasks_btn")
+        self.all_tasks_btn.setMinimumSize(QSize(0, 30))
+        self.all_tasks_btn.setFont(font)
+        self.all_tasks_btn.setStyleSheet(u"QPushButton {\n"
+"	background-repeat: none;\n"
+"	border: none;\n"
+"	background-color: rgb(215, 215, 215);\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(215, 255, 255);\n"
+"	border-radius: 5px;\n"
+"}")
+        icon7 = QIcon()
+        icon7.addFile(u":/icons/icons/clipboard.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.all_tasks_btn.setIcon(icon7)
+        self.all_tasks_btn.setIconSize(QSize(24, 24))
+
+        self.verticalLayout.addWidget(self.all_tasks_btn)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+        self.settings_btn = QPushButton(self.left_menu)
+        self.settings_btn.setObjectName(u"settings_btn")
+        self.settings_btn.setMinimumSize(QSize(0, 30))
+        self.settings_btn.setFont(font)
+        self.settings_btn.setStyleSheet(u"QPushButton {\n"
+"	background-repeat: none;\n"
+"	border: none;\n"
+"	background-color: rgb(215, 215, 215);\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(215, 255, 255);\n"
+"	border-radius: 5px;\n"
+"}")
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/icons/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.settings_btn.setIcon(icon8)
+        self.settings_btn.setIconSize(QSize(24, 24))
+        self.settings_btn.setFlat(False)
+
+        self.verticalLayout.addWidget(self.settings_btn)
+
+
+        self.gridLayout.addWidget(self.left_menu, 2, 0, 1, 1)
+
         self.main_body = QFrame(self.centralwidget)
         self.main_body.setObjectName(u"main_body")
         self.main_body.setFrameShape(QFrame.StyledPanel)
@@ -328,140 +328,6 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(0)
         self.gridLayout_2.setContentsMargins(6, 6, 6, 6)
-        self.start_menu = QFrame(self.main_body)
-        self.start_menu.setObjectName(u"start_menu")
-        self.start_menu.setFrameShape(QFrame.StyledPanel)
-        self.start_menu.setFrameShadow(QFrame.Raised)
-        self.gridLayout_4 = QGridLayout(self.start_menu)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.previous_day_btn = QPushButton(self.start_menu)
-        self.previous_day_btn.setObjectName(u"previous_day_btn")
-        self.previous_day_btn.setMaximumSize(QSize(30, 16777215))
-        self.previous_day_btn.setStyleSheet(u"QPushButton {\n"
-"	background-repeat: none;\n"
-"	border: none;\n"
-"}\n"
-"QPushButton::hover{\n"
-"	background-color: rgb(210, 210, 210);\n"
-"	border-radius: 10px;\n"
-"}")
-        icon9 = QIcon()
-        icon9.addFile(u":/icons/icons/chevron-left.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.previous_day_btn.setIcon(icon9)
-        self.previous_day_btn.setIconSize(QSize(32, 32))
-
-        self.gridLayout_4.addWidget(self.previous_day_btn, 0, 0, 1, 1)
-
-        self.current_data_label = QLabel(self.start_menu)
-        self.current_data_label.setObjectName(u"current_data_label")
-        self.current_data_label.setMaximumSize(QSize(16777215, 40))
-        font1 = QFont()
-        font1.setPointSize(20)
-        font1.setKerning(True)
-        self.current_data_label.setFont(font1)
-        self.current_data_label.setStyleSheet(u"QLabel{\n"
-"	color: rgba(0, 0, 0, 90);\n"
-"}")
-        self.current_data_label.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_4.addWidget(self.current_data_label, 0, 1, 1, 1)
-
-        self.next_day_btn = QPushButton(self.start_menu)
-        self.next_day_btn.setObjectName(u"next_day_btn")
-        self.next_day_btn.setMaximumSize(QSize(30, 16777215))
-        self.next_day_btn.setStyleSheet(u"QPushButton {\n"
-"	background-repeat: none;\n"
-"	border: none;\n"
-"}\n"
-"QPushButton::hover{\n"
-"	background-color: rgb(210, 210, 210);\n"
-"border-radius: 10px;\n"
-"}")
-        icon10 = QIcon()
-        icon10.addFile(u":/icons/icons/chevron-right.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.next_day_btn.setIcon(icon10)
-        self.next_day_btn.setIconSize(QSize(32, 32))
-
-        self.gridLayout_4.addWidget(self.next_day_btn, 0, 2, 1, 1)
-
-        self.scrollArea_2 = QScrollArea(self.start_menu)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setStyleSheet(u"QScrollArea{\n"
-"	border: none\n"
-"}")
-        self.scrollArea_2.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_2 = QWidget()
-        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 653, 291))
-        self.verticalLayout_5 = QVBoxLayout(self.scrollAreaWidgetContents_2)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
-
-        self.gridLayout_4.addWidget(self.scrollArea_2, 2, 0, 1, 3)
-
-
-        self.gridLayout_2.addWidget(self.start_menu, 1, 3, 3, 1)
-
-        self.calendar_menu = QFrame(self.main_body)
-        self.calendar_menu.setObjectName(u"calendar_menu")
-        self.calendar_menu.setMinimumSize(QSize(0, 0))
-        self.calendar_menu.setMaximumSize(QSize(0, 0))
-        self.calendar_menu.setFrameShape(QFrame.StyledPanel)
-        self.calendar_menu.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_6 = QVBoxLayout(self.calendar_menu)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.find_tasks_btn = QPushButton(self.calendar_menu)
-        self.find_tasks_btn.setObjectName(u"find_tasks_btn")
-        self.find_tasks_btn.setMinimumSize(QSize(0, 25))
-        font2 = QFont()
-        font2.setPointSize(13)
-        self.find_tasks_btn.setFont(font2)
-        self.find_tasks_btn.setStyleSheet(u"QPushButton {\n"
-"	background-repeat: none;\n"
-"	border: none;\n"
-"	border-radius: 10px;\n"
-"	background-color: rgb(215, 215, 215);\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"	background-color: rgb(215, 255, 255);\n"
-"}")
-
-        self.verticalLayout_6.addWidget(self.find_tasks_btn)
-
-
-        self.gridLayout_2.addWidget(self.calendar_menu, 1, 2, 1, 1)
-
-        self.all_tasks_menu = QFrame(self.main_body)
-        self.all_tasks_menu.setObjectName(u"all_tasks_menu")
-        self.all_tasks_menu.setMinimumSize(QSize(0, 0))
-        self.all_tasks_menu.setMaximumSize(QSize(0, 0))
-        self.all_tasks_menu.setFrameShape(QFrame.StyledPanel)
-        self.all_tasks_menu.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.all_tasks_menu)
-        self.verticalLayout_2.setSpacing(2)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.scrollArea = QScrollArea(self.all_tasks_menu)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setStyleSheet(u"QScrollArea{\n"
-"	border: none;\n"
-"}")
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 18, 18))
-        self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
-        self.verticalLayout_3.setSpacing(20)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-
-        self.verticalLayout_2.addWidget(self.scrollArea)
-
-
-        self.gridLayout_2.addWidget(self.all_tasks_menu, 1, 4, 1, 1)
-
         self.create_menu = QFrame(self.main_body)
         self.create_menu.setObjectName(u"create_menu")
         self.create_menu.setMinimumSize(QSize(0, 0))
@@ -474,9 +340,9 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
         self.add_data_btn = QPushButton(self.create_menu)
         self.add_data_btn.setObjectName(u"add_data_btn")
-        font3 = QFont()
-        font3.setBold(True)
-        self.add_data_btn.setFont(font3)
+        font1 = QFont()
+        font1.setBold(True)
+        self.add_data_btn.setFont(font1)
         self.add_data_btn.setStyleSheet(u"QPushButton {\n"
 "    min-width: 80px;\n"
 "    min-height: 20px;\n"
@@ -528,8 +394,8 @@ class Ui_MainWindow(object):
         self.timeEdit.setObjectName(u"timeEdit")
         self.timeEdit.setMinimumSize(QSize(0, 30))
         self.timeEdit.setMaximumSize(QSize(230, 16777215))
-        font4 = QFont()
-        self.timeEdit.setFont(font4)
+        font2 = QFont()
+        self.timeEdit.setFont(font2)
         self.timeEdit.setStyleSheet(u"QTimeEdit{\n"
 "	border: 2px solid rgb(120,120,120);\n"
 "	border-radius: 5px;\n"
@@ -576,7 +442,7 @@ class Ui_MainWindow(object):
         self.name_edit = QLineEdit(self.create_menu)
         self.name_edit.setObjectName(u"name_edit")
         self.name_edit.setMinimumSize(QSize(0, 30))
-        self.name_edit.setFont(font4)
+        self.name_edit.setFont(font2)
         self.name_edit.setStyleSheet(u"QLineEdit{\n"
 "	border: 2px solid rgb(120,120,120);\n"
 "	border-radius: 5px;\n"
@@ -617,7 +483,7 @@ class Ui_MainWindow(object):
         self.again_box.setObjectName(u"again_box")
         self.again_box.setEnabled(False)
         self.again_box.setMaximumSize(QSize(140, 16777215))
-        self.again_box.setFont(font4)
+        self.again_box.setFont(font2)
         self.again_box.setStyleSheet(u"QComboBox {\n"
 "    min-width: 6em;\n"
 "    background-color: #FFFFFF;\n"
@@ -686,9 +552,9 @@ class Ui_MainWindow(object):
         self.again_label.setEnabled(False)
         self.again_label.setMinimumSize(QSize(80, 0))
         self.again_label.setMaximumSize(QSize(80, 16777215))
-        font5 = QFont()
-        font5.setPointSize(11)
-        self.again_label.setFont(font5)
+        font3 = QFont()
+        font3.setPointSize(11)
+        self.again_label.setFont(font3)
 
         self.gridLayout_3.addWidget(self.again_label, 4, 0, 1, 1)
 
@@ -703,7 +569,7 @@ class Ui_MainWindow(object):
         self.dateEdit.setObjectName(u"dateEdit")
         self.dateEdit.setMinimumSize(QSize(0, 30))
         self.dateEdit.setMaximumSize(QSize(230, 16777215))
-        self.dateEdit.setFont(font4)
+        self.dateEdit.setFont(font2)
         self.dateEdit.setStyleSheet(u"QDateEdit{\n"
 "	border: 2px solid rgb(120,120,120);\n"
 "	border-radius: 5px;\n"
@@ -732,6 +598,140 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.create_menu, 1, 0, 1, 1)
 
+        self.calendar_menu = QFrame(self.main_body)
+        self.calendar_menu.setObjectName(u"calendar_menu")
+        self.calendar_menu.setMinimumSize(QSize(0, 0))
+        self.calendar_menu.setMaximumSize(QSize(0, 0))
+        self.calendar_menu.setFrameShape(QFrame.StyledPanel)
+        self.calendar_menu.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.calendar_menu)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.find_tasks_btn = QPushButton(self.calendar_menu)
+        self.find_tasks_btn.setObjectName(u"find_tasks_btn")
+        self.find_tasks_btn.setMinimumSize(QSize(0, 25))
+        font4 = QFont()
+        font4.setPointSize(13)
+        self.find_tasks_btn.setFont(font4)
+        self.find_tasks_btn.setStyleSheet(u"QPushButton {\n"
+"	background-repeat: none;\n"
+"	border: none;\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(215, 215, 215);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(215, 255, 255);\n"
+"}")
+
+        self.verticalLayout_6.addWidget(self.find_tasks_btn)
+
+
+        self.gridLayout_2.addWidget(self.calendar_menu, 1, 2, 1, 1)
+
+        self.all_tasks_menu = QFrame(self.main_body)
+        self.all_tasks_menu.setObjectName(u"all_tasks_menu")
+        self.all_tasks_menu.setMinimumSize(QSize(0, 0))
+        self.all_tasks_menu.setMaximumSize(QSize(0, 0))
+        self.all_tasks_menu.setFrameShape(QFrame.StyledPanel)
+        self.all_tasks_menu.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.all_tasks_menu)
+        self.verticalLayout_2.setSpacing(2)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.scrollArea = QScrollArea(self.all_tasks_menu)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setStyleSheet(u"QScrollArea{\n"
+"	border: none;\n"
+"}")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 18, 18))
+        self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_3.setSpacing(20)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_2.addWidget(self.scrollArea)
+
+
+        self.gridLayout_2.addWidget(self.all_tasks_menu, 1, 4, 1, 1)
+
+        self.start_menu = QFrame(self.main_body)
+        self.start_menu.setObjectName(u"start_menu")
+        self.start_menu.setFrameShape(QFrame.StyledPanel)
+        self.start_menu.setFrameShadow(QFrame.Raised)
+        self.gridLayout_4 = QGridLayout(self.start_menu)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.previous_day_btn = QPushButton(self.start_menu)
+        self.previous_day_btn.setObjectName(u"previous_day_btn")
+        self.previous_day_btn.setMaximumSize(QSize(30, 16777215))
+        self.previous_day_btn.setStyleSheet(u"QPushButton {\n"
+"	background-repeat: none;\n"
+"	border: none;\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(210, 210, 210);\n"
+"	border-radius: 10px;\n"
+"}")
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/icons/chevron-left.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.previous_day_btn.setIcon(icon9)
+        self.previous_day_btn.setIconSize(QSize(32, 32))
+
+        self.gridLayout_4.addWidget(self.previous_day_btn, 0, 0, 1, 1)
+
+        self.current_data_label = QLabel(self.start_menu)
+        self.current_data_label.setObjectName(u"current_data_label")
+        self.current_data_label.setMaximumSize(QSize(16777215, 40))
+        font5 = QFont()
+        font5.setPointSize(20)
+        font5.setKerning(True)
+        self.current_data_label.setFont(font5)
+        self.current_data_label.setStyleSheet(u"QLabel{\n"
+"	color: rgba(0, 0, 0, 90);\n"
+"}")
+        self.current_data_label.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout_4.addWidget(self.current_data_label, 0, 1, 1, 1)
+
+        self.next_day_btn = QPushButton(self.start_menu)
+        self.next_day_btn.setObjectName(u"next_day_btn")
+        self.next_day_btn.setMaximumSize(QSize(30, 16777215))
+        self.next_day_btn.setStyleSheet(u"QPushButton {\n"
+"	background-repeat: none;\n"
+"	border: none;\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(210, 210, 210);\n"
+"border-radius: 10px;\n"
+"}")
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/icons/chevron-right.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.next_day_btn.setIcon(icon10)
+        self.next_day_btn.setIconSize(QSize(32, 32))
+
+        self.gridLayout_4.addWidget(self.next_day_btn, 0, 2, 1, 1)
+
+        self.scrollArea_2 = QScrollArea(self.start_menu)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setStyleSheet(u"QScrollArea{\n"
+"	border: none\n"
+"}")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 603, 291))
+        self.verticalLayout_5 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.gridLayout_4.addWidget(self.scrollArea_2, 2, 0, 1, 3)
+
+
+        self.gridLayout_2.addWidget(self.start_menu, 1, 3, 3, 1)
+
         self.settings_menu = QFrame(self.main_body)
         self.settings_menu.setObjectName(u"settings_menu")
         self.settings_menu.setMinimumSize(QSize(0, 0))
@@ -741,54 +741,10 @@ class Ui_MainWindow(object):
         self.gridLayout_5 = QGridLayout(self.settings_menu)
         self.gridLayout_5.setSpacing(6)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.label_3 = QLabel(self.settings_menu)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMaximumSize(QSize(110, 16777215))
-        font6 = QFont()
-        font6.setFamilies([u"Calibri"])
-        font6.setPointSize(13)
-        self.label_3.setFont(font6)
-
-        self.gridLayout_5.addWidget(self.label_3, 3, 0, 1, 1)
-
-        self.auto_delete_check = QCheckBox(self.settings_menu)
-        self.auto_delete_check.setObjectName(u"auto_delete_check")
-        self.auto_delete_check.setMinimumSize(QSize(0, 30))
-        self.auto_delete_check.setFont(font2)
-        self.auto_delete_check.setStyleSheet(u"QCheckBox::indicator {\n"
-"                width: 15px;\n"
-"                height: 15px;\n"
-"            }\n"
-"            QCheckBox::indicator:unchecked {\n"
-"                border: 2px solid #C4C4C4;\n"
-"                border-radius: 5px;\n"
-"            }\n"
-"            QCheckBox::indicator:checked {\n"
-"                background-color: #00BFFF;\n"
-"                border: none;\n"
-"            }\n"
-"            QCheckBox::indicator:hover {\n"
-"                border: 2px solid #1E90FF;\n"
-"            }\n"
-"            QCheckBox::indicator:checked:hover {\n"
-"                background-color: #1E90FF;\n"
-"            }\n"
-"            QCheckBox::indicator:checked:disabled {\n"
-"                background-color: #B0C4DE;\n"
-"            }\n"
-"            QCheckBox::indicator:unchecked:disabled {\n"
-"                border: 2px solid #B0C4DE;\n"
-"                border-radius: 5px;\n"
-"            }\n"
-"            QCheckBox::indicator:indeterminate {\n"
-"                background-color: #C4C4C4;\n"
-" "
-                        "           }")
-
-        self.gridLayout_5.addWidget(self.auto_delete_check, 0, 0, 1, 8)
-
+        self.gridLayout_5.setContentsMargins(-1, -1, -1, 0)
         self.notification_timer = QSpinBox(self.settings_menu)
         self.notification_timer.setObjectName(u"notification_timer")
+        self.notification_timer.setEnabled(False)
         self.notification_timer.setMaximumSize(QSize(40, 16777215))
         self.notification_timer.setStyleSheet(u"QSpinBox {\n"
 "                border: 2px solid #C4C4C4;\n"
@@ -807,21 +763,121 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addWidget(self.notification_timer, 3, 1, 1, 1)
 
-        self.label_4 = QLabel(self.settings_menu)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(0, 0))
-        self.label_4.setMaximumSize(QSize(50, 16777215))
-        self.label_4.setFont(font6)
+        self.frame_2 = QFrame(self.settings_menu)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setMinimumSize(QSize(0, 40))
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_5.setSpacing(6)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.apply_btn = QPushButton(self.frame_2)
+        self.apply_btn.setObjectName(u"apply_btn")
+        self.apply_btn.setFont(font1)
+        self.apply_btn.setStyleSheet(u"QPushButton {\n"
+"    min-width: 80px;\n"
+"    min-height: 15px;\n"
+"    padding: 6px 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    color: #333;\n"
+"    background-color:rgb(230,230,230);\n"
+"    border: 2px solid rgb(120, 120, 120);\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(215, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(180, 225, 225);\n"
+"}\n"
+"\n"
+"QPushButton:focus {\n"
+"    border: 2px solid #06c;\n"
+"    outline: none;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #eee;\n"
+"    border-color: #ccc;\n"
+"    color: #999;\n"
+"}\n"
+"\n"
+"QPushButton::menu-indicator {\n"
+"    width: 0;\n"
+"    height: 0;\n"
+"    padding: 0;\n"
+"    margin: 0;\n"
+"}\n"
+"\n"
+"QPushButton::menu-indicator:subcontrol {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: right center;\n"
+"}\n"
+"\n"
+"")
 
-        self.gridLayout_5.addWidget(self.label_4, 3, 2, 1, 7)
+        self.horizontalLayout_5.addWidget(self.apply_btn)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.cancel_btn = QPushButton(self.frame_2)
+        self.cancel_btn.setObjectName(u"cancel_btn")
+        self.cancel_btn.setFont(font1)
+        self.cancel_btn.setStyleSheet(u"QPushButton {\n"
+"    min-width: 80px;\n"
+"    min-height: 15px;\n"
+"    padding: 6px 12px;\n"
+"    font-size: 15px;\n"
+"    font-weight: bold;\n"
+"    color: #333;\n"
+"    background-color:rgb(230,230,230);\n"
+"    border: 2px solid rgb(120, 120, 120);\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(215, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(180, 225, 225);\n"
+"}\n"
+"\n"
+"QPushButton:focus {\n"
+"    border: 2px solid #06c;\n"
+"    outline: none;\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #eee;\n"
+"    border-color: #ccc;\n"
+"    color: #999;\n"
+"}\n"
+"\n"
+"QPushButton::menu-indicator {\n"
+"    width: 0;\n"
+"    height: 0;\n"
+"    padding: 0;\n"
+"    margin: 0;\n"
+"}\n"
+"\n"
+"QPushButton::menu-indicator:subcontrol {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: right center;\n"
+"}\n"
+"\n"
+"")
 
-        self.gridLayout_5.addItem(self.verticalSpacer_3, 4, 0, 1, 9)
+        self.horizontalLayout_5.addWidget(self.cancel_btn)
+
+
+        self.gridLayout_5.addWidget(self.frame_2, 5, 0, 1, 5)
 
         self.notification_check = QCheckBox(self.settings_menu)
         self.notification_check.setObjectName(u"notification_check")
-        self.notification_check.setFont(font2)
+        self.notification_check.setFont(font4)
         self.notification_check.setStyleSheet(u"QCheckBox::indicator {\n"
 "                width: 15px;\n"
 "                height: 15px;\n"
@@ -833,6 +889,7 @@ class Ui_MainWindow(object):
 "            QCheckBox::indicator:checked {\n"
 "                background-color: #00BFFF;\n"
 "                border: none;\n"
+"				border-radius: 5px;\n"
 "            }\n"
 "            QCheckBox::indicator:hover {\n"
 "                border: 2px solid #1E90FF;\n"
@@ -848,11 +905,69 @@ class Ui_MainWindow(object):
 "                border-radius: 5px;\n"
 "            }\n"
 "            QCheckBox::indicator:indeterminate {\n"
-"                background-color: #C4C4C4;\n"
-" "
-                        "           }")
+"                back"
+                        "ground-color: #C4C4C4;\n"
+"            }")
 
-        self.gridLayout_5.addWidget(self.notification_check, 1, 0, 1, 8)
+        self.gridLayout_5.addWidget(self.notification_check, 1, 0, 1, 4)
+
+        self.label_4 = QLabel(self.settings_menu)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setEnabled(False)
+        self.label_4.setMinimumSize(QSize(0, 0))
+        self.label_4.setMaximumSize(QSize(50, 16777215))
+        self.label_4.setFont(font4)
+
+        self.gridLayout_5.addWidget(self.label_4, 3, 2, 1, 3)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_5.addItem(self.verticalSpacer_3, 4, 2, 1, 1)
+
+        self.label_3 = QLabel(self.settings_menu)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setEnabled(False)
+        self.label_3.setMaximumSize(QSize(110, 16777215))
+        self.label_3.setFont(font4)
+
+        self.gridLayout_5.addWidget(self.label_3, 3, 0, 1, 1)
+
+        self.auto_delete_check = QCheckBox(self.settings_menu)
+        self.auto_delete_check.setObjectName(u"auto_delete_check")
+        self.auto_delete_check.setMinimumSize(QSize(0, 30))
+        self.auto_delete_check.setFont(font4)
+        self.auto_delete_check.setStyleSheet(u"QCheckBox::indicator {\n"
+"                width: 15px;\n"
+"                height: 15px;\n"
+"            }\n"
+"            QCheckBox::indicator:unchecked {\n"
+"                border: 2px solid #C4C4C4;\n"
+"                border-radius: 5px;\n"
+"            }\n"
+"            QCheckBox::indicator:checked {\n"
+"                background-color: #00BFFF;\n"
+"                border: none;\n"
+"				border-radius: 5px;\n"
+"            }\n"
+"            QCheckBox::indicator:hover {\n"
+"                border: 2px solid #1E90FF;\n"
+"            }\n"
+"            QCheckBox::indicator:checked:hover {\n"
+"                background-color: #1E90FF;\n"
+"            }\n"
+"            QCheckBox::indicator:checked:disabled {\n"
+"                background-color: #B0C4DE;\n"
+"            }\n"
+"            QCheckBox::indicator:unchecked:disabled {\n"
+"                border: 2px solid #B0C4DE;\n"
+"                border-radius: 5px;\n"
+"            }\n"
+"            QCheckBox::indicator:indeterminate {\n"
+"                back"
+                        "ground-color: #C4C4C4;\n"
+"            }")
+
+        self.gridLayout_5.addWidget(self.auto_delete_check, 0, 0, 1, 5)
 
 
         self.gridLayout_2.addWidget(self.settings_menu, 2, 1, 2, 1)
@@ -868,20 +983,16 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.calendar_btn.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u043b\u0435\u043d\u0434\u0430\u0440\u044c ", None))
-        self.all_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 ", None))
-        self.settings_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 ", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u041f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0449\u0438\u043a \u0437\u0430\u0434\u0430\u0447", None))
         self.left_menu_btn.setText("")
         self.home_btn.setText("")
         self.create_task_btn.setText("")
         self.hide_btn.setText("")
         self.expand_btn.setText("")
         self.close_btn.setText("")
-        self.previous_day_btn.setText("")
-        self.current_data_label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.next_day_btn.setText("")
-        self.find_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0439\u0442\u0438", None))
+        self.calendar_btn.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u043b\u0435\u043d\u0434\u0430\u0440\u044c ", None))
+        self.all_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 ", None))
+        self.settings_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 ", None))
         self.add_data_btn.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
         self.name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0437\u0434\u0435\u0441\u044c \u043d\u043e\u0432\u0443\u044e \u0437\u0430\u0434\u0430\u0447\u0443", None))
         self.label.setText("")
@@ -891,9 +1002,15 @@ class Ui_MainWindow(object):
 
         self.again_label.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0432\u0442\u043e\u0440\u044f\u0442\u044c", None))
         self.label_2.setText("")
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u043e\u0432\u0435\u0449\u0430\u0442\u044c \u0437\u0430", None))
-        self.auto_delete_check.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0434\u0430\u043b\u044f\u0442\u044c \u0437\u0430\u0434\u0430\u0447\u0438 \u043f\u043e \u0438\u0441\u0442\u0435\u0447\u0435\u043d\u0438\u044e \u0432\u0440\u0435\u043c\u0435\u043d\u0438", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u043c\u0438\u043d\u0443\u0442", None))
+        self.find_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0439\u0442\u0438", None))
+        self.previous_day_btn.setText("")
+        self.current_data_label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.next_day_btn.setText("")
+        self.apply_btn.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c", None))
+        self.cancel_btn.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043c\u0435\u043d\u0430", None))
         self.notification_check.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u044f \u043e \u0437\u0430\u0434\u0430\u0447\u0430\u0445", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u043c\u0438\u043d\u0443\u0442", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u043e\u0432\u0435\u0449\u0430\u0442\u044c \u0437\u0430", None))
+        self.auto_delete_check.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0435 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u0437\u0430\u0434\u0430\u0447\u0438 \u043f\u043e \u0438\u0441\u0442\u0435\u0447\u0435\u043d\u0438\u044e \u0438\u0445 \u0441\u0440\u043e\u043a\u0430 ", None))
     # retranslateUi
 

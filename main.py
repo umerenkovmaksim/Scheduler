@@ -1,19 +1,22 @@
+import ctypes
 import datetime
+import os
+import signal
+import subprocess
 from datetime import timedelta
-from datetime import date as to_date
 import sys
 import time
-from qt_material import apply_stylesheet
 
-from PySide6 import QtCore
-from PySide6.QtCore import QPropertyAnimation, QEasingCurve, QTimer
-from PySide6.QtGui import QFont, QFontDatabase
-from PySide6.QtWidgets import QApplication, QMainWindow, QSizeGrip, QLabel, QGraphicsBlurEffect
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import QTimer
+from PySide6.QtGui import QFont
+from PySide6.QtWidgets import QApplication, QMainWindow, QSizeGrip, QLabel, QSystemTrayIcon
 from CustomWidgets.CustomCalendar import *
 from CustomWidgets.CustomDataEdit import *
 from CustomWidgets.Switcher import *
 from CustomWidgets.TaskWidget import *
 from GUI.MainWindow import Ui_MainWindow
+from NotificationThread import NotificationThread, TimerManager
 
 
 def clear_layout(layout):
@@ -29,12 +32,36 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('GUI/icons/app_icon.png'))
+
+        # --------------------------------------------------------------------
+        myappid = 'mycompany.myproduct.subproduct.version'  # Настройка для отображения иконки в
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)  # панели задач
+        # --------------------------------------------------------------------
+        subprocess.call(['python', 'Telegram/TelegramBot.py'])
 
         self.left_menu_btn.clicked.connect(lambda: self.slide_left_menu())
         QSizeGrip(self.size_grip)
         self.left_menu_enabled, self.create_menu_enabled, self.settings_menu_enabled, \
             self.calendar_menu_enabled, self.all_tasks_menu_enabled = False, False, False, False, False
         self.start_menu_enabled = True
+        with open('settings.txt', mode='r') as file:
+            settings = file.readlines()
+            self.auto_delete = bool(int(settings[0].split('=')[1]))
+            self.notifications_enabled = bool(int(settings[1].split('=')[1]))
+        self.tray_icon = QSystemTrayIcon(self)
+        self.tray_icon.setIcon(QtGui.QIcon('GUI/icons/app_icon.png'))
+        self.tray_icon.activated.connect(
+            lambda reason: window.showNormal() if reason == QSystemTrayIcon.Trigger else None)
+        menu = QtWidgets.QMenu()
+        restore_action = menu.addAction("Открыть")
+        restore_action.triggered.connect(self.showNormal)
+        quit_action = menu.addAction("Выйти")
+        quit_action.triggered.connect(self.terminate)
+        self.tray_icon.setContextMenu(menu)
+        self.tray_icon.show()
+        self.dont_show = []
+        self.notifications = TimerManager()
         self.timeout = time.time()
         self.last_home_click = time.time()
 
@@ -62,15 +89,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.gridLayout_3.addWidget(self.every_day_check, 4, 3, 1, 1)
 
-        self.close_btn.clicked.connect(self.close)
+        self.close_btn.clicked.connect(self.terminate)
         self.add_data_btn.clicked.connect(self.add_data_to_db)
         self.find_tasks_btn.clicked.connect(self.find_tasks_to_day)
+        self.cancel_btn.clicked.connect(lambda: self.return_to_home(False,
+                                                                    self.create_menu_enabled,
+                                                                    self.calendar_menu_enabled,
+                                                                    self.all_tasks_menu_enabled,
+                                                                    self.settings_menu_enabled,
+                                                                    False))
         self.home_btn.clicked.connect(lambda: self.return_to_home(self.left_menu_enabled,
                                                                   self.create_menu_enabled,
                                                                   self.calendar_menu_enabled,
                                                                   self.all_tasks_menu_enabled,
                                                                   self.settings_menu_enabled,
                                                                   False))
+        self.apply_btn.clicked.connect(self.apply_changes)
         self.settings_btn.clicked.connect(self.slide_settings_menu)
         self.all_tasks_btn.clicked.connect(self.slide_all_tasks_menu)
         self.calendar_btn.clicked.connect(self.slide_calendar_menu)
@@ -78,8 +112,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.previous_day_btn.clicked.connect(self.previous_day)
         self.next_day_btn.clicked.connect(self.next_day)
         self.every_day_check.stateChanged.connect(self.update_text_visible)
+        self.notification_check.stateChanged.connect(self.notif_timer_enable)
         self.expand_btn.clicked.connect(lambda: self.expand_action())
-        self.hide_btn.clicked.connect(self.showMinimized)
+        self.hide_btn.clicked.connect(self.minimized_to_tray)
 
         self.current_date = datetime.today().strftime("%d-%m-%Y")
         self.current_data_label.setText(f'Сегодня ({self.current_date})')
@@ -89,6 +124,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.load_tasks()
         self.load_animations()
+        self.load_tasks_notification()
+
+    def terminate(self):
+        self.notifications.cancel_timers()
+        os.kill(os.getpid(), signal.SIGINT)
 
     def resizeEvent(self, event):
         self.create_menu.setMaximumSize(self.width(), self.height()) if self.create_menu_enabled else ''
@@ -96,6 +136,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.calendar_menu.setMaximumSize(self.width(), self.height()) if self.calendar_menu_enabled else ''
         self.all_tasks_menu.setMaximumSize(self.width(), self.height()) if self.all_tasks_menu_enabled else ''
         self.settings_menu.setMaximumSize(self.width(), self.height()) if self.settings_menu_enabled else ''
+        self.frame_2.setMaximumWidth(self.width()) if self.settings_menu_enabled else ''
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F11:
@@ -115,6 +156,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         delta = event.pos() - self.old_pos
         self.move(self.pos() + delta)
 
+    def connect_telegram_bot(self):
+        bot = TelegramBot()
+        bot.start()
+        bot.send_message('Привет, я бот! Я отправил это сообщение из Python скрипта.')
+
+    def minimized_to_tray(self):
+        self.hide()
+        self.tray_icon.showMessage(
+            "Планировщик задач",
+            "Приложение свёрнуто в трей.",
+            QSystemTrayIcon.Information,
+            2000,
+        )
+
     def previous_day(self):
         self.current_date = (to_date(*tuple(map(int, self.current_date.split('-')[::-1]))) + timedelta(
             days=-1)).strftime('%d-%m-%Y')
@@ -124,6 +179,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.current_date = (to_date(*tuple(map(int, self.current_date.split('-')[::-1]))) + timedelta(
             days=1)).strftime('%d-%m-%Y')
         self.load_day_tasks(self.current_date)
+
+    def load_tasks_notification(self):
+        self.notifications.cancel_timers()
+        day_tasks = self.load_day_tasks(return_data=True)
+        for task in day_tasks:
+            task_notification = NotificationThread(task, int(self.notification_timer.text()) if
+            self.notification_timer.isEnabled() else 0)
+            self.notifications.add_timer(task_notification)
 
     def main_menu_visible(self):
         now_open = [self.create_menu_enabled, self.settings_menu_enabled, self.calendar_menu_enabled,
@@ -164,14 +227,38 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setMinimumSize(0, 0)
         self.setMaximumSize(16777215, 16777215)
 
+    def notif_timer_enable(self):
+        self.label_3.setEnabled(self.notification_check.isChecked())
+        self.label_4.setEnabled(self.notification_check.isChecked())
+        self.notification_timer.setEnabled(self.notification_check.isChecked())
+
+    def apply_changes(self):
+        self.auto_delete = self.auto_delete_check.isChecked()
+        self.notifications_enabled = self.notification_check.isChecked()
+        self.return_to_home(False,
+                            self.create_menu_enabled,
+                            self.calendar_menu_enabled,
+                            self.all_tasks_menu_enabled,
+                            self.settings_menu_enabled,
+                            False)
+        self.save_settings_in_file()
+        if self.auto_delete:
+            self.dont_show = []
+            today = datetime.today().date()
+            for elem in self.data_from_db:
+                elem_date = to_date(*tuple(map(int, elem[2].split('-')[::-1])))
+                if (elem_date - today).days < -1 and not elem[5]:
+                    self.dont_show.append(elem[0])
+        self.load_tasks_notification()
+
     def find_tasks_to_day(self):
         if self.calendarWidget.index != 1:
             self.load_day_tasks(self.calendarWidget.index.toString("dd-MM-yyyy"))
             self.return_to_home(0, self.create_menu_enabled, self.calendar_menu_enabled, self.all_tasks_menu_enabled,
-                                False)
+                                self.settings_menu_enabled, False)
             self.calendarWidget.index = 1
 
-    def load_day_tasks(self, date=datetime.today().strftime("%d-%m-%Y")):
+    def load_day_tasks(self, date=datetime.today().strftime("%d-%m-%Y"), return_data=False):
         self.current_date = date
         self.current_data_label.setText(
             f'Сегодня ({self.current_date})' if self.current_date == datetime.today().strftime(
@@ -188,8 +275,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             elem_date = to_date(*tuple(map(int, elem[2].split('-')[::-1])))
             today = to_date(*tuple(map(int, self.current_date.split('-')[::-1])))
             delta_days = elem_date - today
-            if not elem[5] or elem[5] == 'Ежедневно' or (elem[5] == 'Еженедельно' and delta_days.days % 7 == 0) or (
-                    elem[5] == 'Ежемесячно' and elem_date.day == today.day):
+            if (not elem[5] or elem[5] == 'Ежедневно' or (elem[5] == 'Еженедельно' and delta_days.days % 7 == 0) or (
+                    elem[5] == 'Ежемесячно' and elem_date.day == today.day)):
                 continue
             will_deleted.append(index)
         for index in will_deleted[::-1]:
@@ -211,15 +298,23 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 self.verticalLayout_5.addWidget(TaskWidget(self, *elem))
         con.commit()
         con.close()
+        if return_data:
+            return data_from_db
+
+    def save_settings_in_file(self):
+        with open('settings.txt', mode='w') as file:
+            file.write(f'auto_delete={int(self.auto_delete)}\nnotifications_enabled={int(self.notifications_enabled)}')
 
     def load_tasks(self):
         con = sqlite3.connect('SchedulerApp.db')
         cur = con.cursor()
-        data_from_db = sorted(sorted(cur.execute("""SELECT * from scheduler_data""").fetchall(), key=lambda x: x[3]),
-                              key=lambda x: x[2])
+        self.data_from_db = sorted(
+            sorted(cur.execute("""SELECT * from scheduler_data""").fetchall(), key=lambda x: x[3]),
+            key=lambda x: x[2])
         clear_layout(self.verticalLayout_3)
-        for elem in data_from_db:
-            self.verticalLayout_3.addWidget(TaskWidget(self, *elem))
+        for elem in self.data_from_db:
+            if elem[0] not in self.dont_show:
+                self.verticalLayout_3.addWidget(TaskWidget(self, *elem))
         self.name_edit.setText('')
         con.commit()
         con.close()
@@ -330,6 +425,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             else:
                 new_width = 0
             self.settings_menu_enabled = not self.settings_menu_enabled
+            if self.settings_menu_enabled:
+                self.auto_delete_check.setChecked(self.auto_delete)
+                self.notification_check.setChecked(self.notifications_enabled)
             self.main_menu_visible() if not recursion else ''
             self.settings_menu_animation_w.setStartValue(width)
             self.settings_menu_animation_w.setEndValue(new_width)

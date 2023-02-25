@@ -123,6 +123,7 @@ class TaskWidget(QWidget, Ui_Form):
                                        self.parent.create_menu_enabled,
                                        self.parent.calendar_menu_enabled,
                                        self.parent.all_tasks_menu_enabled,
+                                       self.parent.settings_menu_enabled,
                                        False)
             self.editing = False
             self.parent.load_tasks()
@@ -131,6 +132,7 @@ class TaskWidget(QWidget, Ui_Form):
             self.parent.every_day_check.setChecked(False)
             self.parent.add_data_btn.setText('Добавить')
             self.parent.name_edit.setText('')
+            self.parent.load_tasks_notification()
 
     def delete_task(self):
         con = sqlite3.connect('SchedulerApp.db')
@@ -140,6 +142,7 @@ class TaskWidget(QWidget, Ui_Form):
         con.close()
         self.parent.load_tasks()
         self.parent.load_day_tasks(self.parent.current_date)
+        self.parent.load_tasks_notification()
 
     def accept_task(self):
         self.accept = not self.accept
@@ -150,3 +153,4 @@ class TaskWidget(QWidget, Ui_Form):
         con.close()
         self.parent.load_tasks()
         self.parent.load_day_tasks(self.parent.current_date)
+        self.parent.load_tasks_notification()
