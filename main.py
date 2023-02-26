@@ -34,7 +34,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowIcon(QtGui.QIcon('GUI/icons/app_icon.png'))
+        self.setWindowIcon(QtGui.QIcon('resourses/icons/app_icon.png'))
 
         # --------------------------------------------------------------------
         myappid = 'mycompany.myproduct.subproduct.version'  # Настройка для отображения иконки в
@@ -46,13 +46,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.left_menu_enabled, self.create_menu_enabled, self.settings_menu_enabled, \
             self.calendar_menu_enabled, self.all_tasks_menu_enabled = False, False, False, False, False
         self.start_menu_enabled = True
+        self.editing = False
         with open('settings.txt', mode='r') as file:
             settings = file.readlines()
             self.auto_delete = bool(int(settings[0].split('=')[1]))
             self.notifications_enabled = bool(int(settings[1].split('=')[1]))
             self.autorun = bool(int(settings[2].split('=')[1]))
         self.tray_icon = QSystemTrayIcon(self)
-        self.tray_icon.setIcon(QtGui.QIcon('GUI/icons/app_icon.png'))
+        self.tray_icon.setIcon(QtGui.QIcon('resourses/icons/app_icon.png'))
         self.tray_icon.activated.connect(
             lambda reason: window.showNormal() if reason == QSystemTrayIcon.Trigger else None)
         menu = QtWidgets.QMenu()
@@ -144,6 +145,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F11:
             self.expand_action()
+        if event.key() == QtCore.Qt.Key_Left and self.start_menu_enabled:
+            self.previous_day()
+        if event.key() == QtCore.Qt.Key_Right and self.start_menu_enabled:
+            self.next_day()
+        if event.key() == QtCore.Qt.Key_Return:
+            if self.settings_menu_enabled:
+                self.apply_changes()
+            if self.create_menu_enabled and not self.editing:
+                self.add_data_to_db()
+        if event.key() == QtCore.Qt.Key_Escape:
+            self.return_to_home(self.left_menu_enabled,
+                                self.create_menu_enabled,
+                                self.calendar_menu_enabled,
+                                self.all_tasks_menu_enabled,
+                                self.settings_menu_enabled,
+                                False)
 
     def mousePressEvent(self, event):
         if self.move_window_bar.underMouse() and event.button() == Qt.LeftButton:
@@ -475,6 +492,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.timeout = time.time()
 
     def slide_create_menu(self, recursion=False, edit=False):
+        self.editing = edit
         if time.time() - self.timeout > 0.4:
             width, height = self.create_menu.width(), self.create_menu.height()
             if not edit:
@@ -506,6 +524,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.create_menu_animation_h.setEndValue(new_height)
             self.create_menu_animation_h.start()
             self.timeout = time.time()
+            if not self.create_menu_enabled:
+                self.add_data_btn.setText('Добавить')
 
     def slide_calendar_menu(self, recursion=False):
         if time.time() - self.timeout > 0.4:

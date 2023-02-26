@@ -2,8 +2,6 @@ from PySide6.QtCore import QSize, QDate
 from PySide6.QtGui import QTextCharFormat, QColor, Qt, QIcon
 from PySide6.QtWidgets import QDateEdit, QWidget, QSpinBox, QToolButton
 
-from qt_material import apply_stylesheet
-
 
 class CustomDataEdit(QDateEdit):
     def __init__(self, parent=None):

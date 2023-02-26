@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow - untitledenfnUA.ui'
+## Form generated from reading UI file 'MainWindow - untitledMJZmgD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.0
 ##
@@ -1021,14 +1021,32 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u041f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0449\u0438\u043a \u0437\u0430\u0434\u0430\u0447", None))
         self.left_menu_btn.setText("")
+#if QT_CONFIG(shortcut)
+        self.left_menu_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+M", None))
+#endif // QT_CONFIG(shortcut)
         self.home_btn.setText("")
+#if QT_CONFIG(shortcut)
+        self.home_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+H", None))
+#endif // QT_CONFIG(shortcut)
         self.create_task_btn.setText("")
+#if QT_CONFIG(shortcut)
+        self.create_task_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+N", None))
+#endif // QT_CONFIG(shortcut)
         self.hide_btn.setText("")
         self.expand_btn.setText("")
         self.close_btn.setText("")
         self.calendar_btn.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u043b\u0435\u043d\u0434\u0430\u0440\u044c ", None))
+#if QT_CONFIG(shortcut)
+        self.calendar_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+K", None))
+#endif // QT_CONFIG(shortcut)
         self.all_tasks_btn.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 ", None))
+#if QT_CONFIG(shortcut)
+        self.all_tasks_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+T", None))
+#endif // QT_CONFIG(shortcut)
         self.settings_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 ", None))
+#if QT_CONFIG(shortcut)
+        self.settings_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+I", None))
+#endif // QT_CONFIG(shortcut)
         self.add_data_btn.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
         self.name_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0437\u0434\u0435\u0441\u044c \u043d\u043e\u0432\u0443\u044e \u0437\u0430\u0434\u0430\u0447\u0443", None))
         self.label.setText("")
@@ -1042,6 +1060,9 @@ class Ui_MainWindow(object):
         self.previous_day_btn.setText("")
         self.current_data_label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.next_day_btn.setText("")
+#if QT_CONFIG(shortcut)
+        self.next_day_btn.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+S", None))
+#endif // QT_CONFIG(shortcut)
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u043e\u0432\u0435\u0449\u0430\u0442\u044c \u0437\u0430", None))
         self.auto_delete_check.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0435 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u0437\u0430\u0434\u0430\u0447\u0438 \u043f\u043e \u0438\u0441\u0442\u0435\u0447\u0435\u043d\u0438\u044e \u0438\u0445 \u0441\u0440\u043e\u043a\u0430 ", None))
         self.apply_btn.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c", None))

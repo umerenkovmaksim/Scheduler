@@ -2,6 +2,7 @@ import sqlite3
 from datetime import datetime
 from datetime import date as to_date
 
+from PySide6 import QtCore
 from PySide6.QtCore import Qt, QDate, QTime
 from PySide6.QtWidgets import QWidget
 from GUI.UiTaskWidget import Ui_Form
@@ -12,12 +13,11 @@ class TaskWidget(QWidget, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.name_label.setText(name)
-        self.editing = False
         self.parent, self.name, self.id, self.date, self.time, self.accept = parent, name, id, date, time, accept
+        self.editing = False
         self.repeat = repeat
         task_date = to_date(*tuple(map(int, self.date.split('-')[::-1])))
         if self.repeat == 'Ежедневно' and self.date != datetime.today().date().strftime('%d-%m-%Y'):
-            print(1)
             self.date = datetime.today().date().strftime('%d-%m-%Y')
             self.accept = False
             self.save()
@@ -67,8 +67,10 @@ class TaskWidget(QWidget, Ui_Form):
         self.parent.calendar_btn.clicked.connect(lambda: self.cancel_edited_task(True))
         self.parent.all_tasks_btn.clicked.connect(lambda: self.cancel_edited_task(True))
 
-    # def change_theme(self, theme):
-    #
+    def keyPressEvent(self, event):
+        if event.key() == QtCore.Qt.Key_Escape:
+            self.cancel_edited_task()
+
     def edit_task(self):
         self.parent.add_data_btn.setText('Сохранить')
         self.parent.dateEdit.setDate(QDate(*tuple(map(int, self.date.split('-')[::-1]))))
